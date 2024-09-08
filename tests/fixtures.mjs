@@ -14,7 +14,7 @@ export async function pressreleaseRdf20240908() {
 /**
  * @returns {Promise<jsdom.JSDOM>}
  */
-export async function recall20240908() {
+export async function recall20240906() {
   const content = await readFile(
     new URL("./fixtures/jidosha08_hh_005221.html", import.meta.url),
     { encoding: "utf8" },

@@ -3,7 +3,7 @@ import {
   extractPdfLinksFromPressReleasePage,
   parseRssAndFilterRecalls,
 } from "../lib/logics.mjs";
-import { pressreleaseRdf20240908, recall20240908 } from "../tests/fixtures.mjs";
+import { pressreleaseRdf20240908, recall20240906 } from "../tests/fixtures.mjs";
 
 describe("parseRssAndFilterRecalls", () => {
   test("2024-09-08時点のRSSをparseして「リコールの届出について」のみを古い順に出力すること", async () => {
@@ -28,7 +28,7 @@ describe("parseRssAndFilterRecalls", () => {
 
 describe("extractPdfLinksFromPressReleasePage", () => {
   test("2024-09-08のプレスリリースページからPDFのリンクを抽出できること", async () => {
-    const dom = await recall20240908();
+    const dom = await recall20240906();
     const actual = extractPdfLinksFromPressReleasePage(dom);
     expect(actual).toEqual([
       {
