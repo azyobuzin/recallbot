@@ -1,4 +1,4 @@
-import type { PostedUrl } from "./objects.js";
+import type { PostedUrl } from "./objects.ts";
 
 export type DownloadResourceService = {
   readonly downloadResource: (
@@ -18,4 +18,12 @@ export type PdfToImagesService = {
 export type PostedUrlsRepository = {
   readonly getStoredUrls: (urls: string[]) => Promise<string[]>;
   readonly put: (record: PostedUrl) => Promise<void>;
+};
+
+export type TootService = {
+  readonly uploadMedia: (
+    media: Buffer,
+    description?: string,
+  ) => Promise<string>;
+  readonly postStatus: (status: string, mediaIds: string[]) => Promise<void>;
 };
