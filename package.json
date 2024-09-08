@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "fix": "prettier --ignore-path .gitignore --write . !package-lock.json",
+    "fix": "prettier --ignore-path .gitignore --write . !package-lock.json !tests/fixtures/**",
     "test": "tsc -noEmit && NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
   },
   "dependencies": {
