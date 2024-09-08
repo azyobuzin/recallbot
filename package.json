@@ -1,0 +1,28 @@
+{
+  "name": "recallbot",
+  "version": "0.1.0",
+  "main": "app.mjs",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azyobuzin/recallbot.git"
+  },
+  "author": "azyobuzin <azyobuzin@users.sourceforge.jp>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "fix": "prettier --ignore-path .gitignore --write . !package-lock.json",
+    "test": "tsc -noEmit && NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
+  },
+  "dependencies": {
+    "jsdom": "25.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "29.7.0",
+    "@types/aws-lambda": "8.10.145",
+    "@types/jsdom": "21.1.7",
+    "jest": "29.7.0",
+    "prettier": "3.3.3",
+    "typescript": "5.5.4"
+  }
+}
