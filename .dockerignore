@@ -1,7 +1,5 @@
-.dockerignore
-.github
-.gitignore
-Dockerfile
-node_modules
-tests
-types
+*
+!lib
+!app.mjs
+!package-lock.json
+!package.json
