@@ -15,6 +15,7 @@
     "test": "tsc -noEmit && NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "3.645.0",
     "jsdom": "25.0.0"
   },
   "devDependencies": {
