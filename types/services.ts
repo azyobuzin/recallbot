@@ -13,10 +13,6 @@ export type DownloadResourceService = {
   ) => Promise<ArrayBuffer>;
 };
 
-export type LoadPageService = {
-  readonly loadPage: (url: string) => Promise<import("jsdom").JSDOM>;
-};
-
 export type PdfToImagesService = {
   readonly convertPdfToImages: (pdfBuffer: ArrayBuffer) => Promise<Buffer[]>;
 };
