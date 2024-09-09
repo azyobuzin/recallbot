@@ -27,7 +27,7 @@ describe("parseRssAndFilterRecalls", () => {
 });
 
 describe("extractPdfLinksFromPressReleasePage", () => {
-  test("2024-09-08のプレスリリースページからPDFのリンクを抽出できること", async () => {
+  test("2024-09-06のプレスリリースページからPDFのリンクを抽出できること", async () => {
     const dom = await recall20240906();
     const actual = extractPdfLinksFromPressReleasePage(dom);
     expect(actual).toEqual([
