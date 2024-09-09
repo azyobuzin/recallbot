@@ -4,7 +4,7 @@ import { DefaultDownloadResourceService } from "./lib/download-resource-service.
 import { DefaultPdfToImagesService } from "./lib/pdf-to-images-service.mjs";
 
 if (process.argv.length !== 3) {
-  console.error("Usage: node debug-pdf-to-images.mjs <URL>");
+  console.error("Usage: node debug-pdf-to-images.mjs <PDF URL>");
   process.exit(1);
 }
 

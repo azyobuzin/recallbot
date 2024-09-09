@@ -15,9 +15,11 @@
     "test": "tsc -noEmit && NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
   },
   "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "3.645.0",
     "@aws-sdk/client-dynamodb": "3.645.0",
     "jsdom": "25.0.0",
-    "pdf-to-img": "4.1.0"
+    "pdf-to-img": "4.1.0",
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",

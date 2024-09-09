@@ -3,6 +3,9 @@
     "module": "Node16",
     "target": "ESNext",
     "checkJs": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "noEmit": true
   },
   "exclude": ["node_modules"]

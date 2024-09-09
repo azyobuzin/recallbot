@@ -12,3 +12,9 @@ export type PostedUrl = {
   url: string;
   createdAt: number; // Unix seconds
 };
+
+export type RecallDetails = {
+  component: string;
+  situation: string;
+  numCars: number;
+};

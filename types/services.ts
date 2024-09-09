@@ -1,4 +1,10 @@
-import type { PostedUrl } from "./objects.ts";
+import type { PostedUrl, RecallDetails } from "./objects.ts";
+
+export type ExtractRecallDetailsFromPdfService = {
+  readonly extractRecallDetailsFromPdf: (
+    pdfBuffer: ArrayBuffer,
+  ) => Promise<RecallDetails>;
+};
 
 export type DownloadResourceService = {
   readonly downloadResource: (
