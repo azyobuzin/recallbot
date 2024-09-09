@@ -1,6 +1,8 @@
 import { describe, expect, test } from "@jest/globals";
 import {
+  extractCarNameFromTitle,
   extractPdfLinksFromPressReleasePage,
+  extractPreambleFromPressReleasePage,
   parseRssAndFilterRecalls,
 } from "../lib/logics.mjs";
 import { pressreleaseRdf20240908, recall20240906 } from "../tests/fixtures.mjs";
@@ -23,6 +25,32 @@ describe("parseRssAndFilterRecalls", () => {
         link: "http://www.mlit.go.jp/report/press/jidosha08_hh_005221.html",
       },
     ]);
+  });
+});
+
+describe("extractCarNameFromTitle", () => {
+  test("正しく抽出できること", () => {
+    expect(
+      extractCarNameFromTitle("リコールの届出について（いすゞ　ギガ　他）"),
+    ).toBe("いすゞ　ギガ　他");
+  });
+
+  test("想定外のタイトルの場合、Errorをthrowすること", () => {
+    expect(() =>
+      extractCarNameFromTitle(
+        "スマートインターチェンジの高速道路会社への事業許可および準備段階調査着手について",
+      ),
+    ).toThrow();
+  });
+});
+
+describe("extractPreambleFromPressReleasePage", () => {
+  test("2024-09-06のプレスリリースページから冒頭の文章を抽出できること", async () => {
+    const dom = await recall20240906();
+    const actual = extractPreambleFromPressReleasePage(dom);
+    expect(actual).toBe(
+      "ドゥカティジャパン株式会社から、令和６年９月６日国土交通大臣に対して、下記のとおりリコールの届出がありましたので、お知らせします。",
+    );
   });
 });
 

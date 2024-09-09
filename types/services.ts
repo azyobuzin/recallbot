@@ -26,6 +26,10 @@ export type PostedUrlsRepository = {
   readonly put: (record: PostedUrl) => Promise<void>;
 };
 
+export type RecallbotService = {
+  readonly execute: () => Promise<void>;
+};
+
 export type TootService = {
   readonly uploadMedia: (
     media: Buffer,

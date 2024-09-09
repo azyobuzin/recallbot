@@ -11,7 +11,7 @@ describe("DefaultPostedUrlsRepository.getStoredUrls", () => {
   test("正しくリクエストを作成できていること", async () => {
     mockDynamoDbClient.send.mockResolvedValue({
       Responses: {
-        [defaultPostedUrlsTableName]: [{ url: { S: "url1" } }],
+        [defaultPostedUrlsTableName]: [{ posted_url: { S: "url1" } }],
       },
     });
 
@@ -36,8 +36,8 @@ describe("DefaultPostedUrlsRepository.getStoredUrls", () => {
     expect(input).toEqual({
       RequestItems: {
         [defaultPostedUrlsTableName]: {
-          Keys: [{ url: { S: "url1" } }, { url: { S: "url2" } }],
-          ProjectionExpression: "url",
+          Keys: [{ posted_url: { S: "url1" } }, { posted_url: { S: "url2" } }],
+          ProjectionExpression: "posted_url",
         },
       },
     });
@@ -46,11 +46,11 @@ describe("DefaultPostedUrlsRepository.getStoredUrls", () => {
   test("UnprocessedKeysがある場合、Errorをthrowすること", async () => {
     mockDynamoDbClient.send.mockResolvedValue({
       Responses: {
-        [defaultPostedUrlsTableName]: [{ url: { S: "url1" } }],
+        [defaultPostedUrlsTableName]: [{ posted_url: { S: "url1" } }],
       },
       UnprocessedKeys: {
         [defaultPostedUrlsTableName]: {
-          Keys: [{ url: { S: "url2" } }],
+          Keys: [{ posted_url: { S: "url2" } }],
         },
       },
     });
@@ -88,7 +88,7 @@ describe("DefaultPostedUrlsRepository.put", () => {
     expect(input).toEqual({
       TableName: defaultPostedUrlsTableName,
       Item: {
-        url: { S: "url1" },
+        posted_url: { S: "url1" },
         createdAt: { N: "1725807298" },
       },
     });
