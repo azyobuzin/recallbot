@@ -1,3 +1,3 @@
-import { createRecallbotService } from "./lib/create-recallbot-service.mjs";
+import { DefaultRecallbotService } from "./lib/recallbot-service.mjs";
 
-await createRecallbotService().execute();
+await DefaultRecallbotService.createDefault().execute();
