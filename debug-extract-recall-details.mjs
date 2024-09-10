@@ -1,5 +1,5 @@
 import { acceptPdf } from "./lib/constants.mjs";
-import { DefaultExtractRecallDetailsFromPdfService } from "./lib/extract-recall-details-from-pdf-service.mjs";
+import { DefaultExtractRecallDetailsService } from "./lib/extract-recall-details-service.mjs";
 import { DefaultDownloadResourceService } from "./lib/download-resource-service.mjs";
 
 if (process.argv.length !== 3) {
@@ -15,7 +15,7 @@ const pdf = await new DefaultDownloadResourceService().downloadResource(
 );
 
 const recallDetails =
-  await DefaultExtractRecallDetailsFromPdfService.createDefault().extractRecallDetailsFromPdf(
+  await DefaultExtractRecallDetailsService.createDefault().extractRecallDetailsFromPdf(
     pdf,
   );
 

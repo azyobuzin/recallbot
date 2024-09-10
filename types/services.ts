@@ -1,6 +1,6 @@
 import type { PostedUrl, RecallDetails } from "./objects.ts";
 
-export type ExtractRecallDetailsFromPdfService = {
+export type ExtractRecallDetailsService = {
   readonly extractRecallDetailsFromPdf: (
     pdfBuffer: ArrayBuffer,
   ) => Promise<RecallDetails>;

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { parseAssistantMessage } from "../lib/extract-recall-details-from-pdf-service.mjs";
+import { parseAssistantMessage } from "../lib/extract-recall-details-service.mjs";
 
 describe("parseAssistantMessage", () => {
   test("numCarsが整数でなくても処理できること", async () => {
