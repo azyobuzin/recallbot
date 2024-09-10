@@ -1,8 +1,8 @@
-import { createRecallbotService } from "./lib/create-recallbot-service.mjs";
+import { DefaultRecallbotService } from "./lib/recallbot-service.mjs";
 
 /**
  * @type {import("aws-lambda").EventBridgeHandler<string, unknown, void>}
  */
 export async function handler(event, context) {
-  await createRecallbotService().execute();
+  await DefaultRecallbotService.createDefault().execute();
 }
