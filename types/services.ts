@@ -26,6 +26,10 @@ export type RecallbotService = {
   readonly execute: () => Promise<void>;
 };
 
+export type ReportErrorService = {
+  readonly reportError: (error: unknown) => Promise<void>;
+};
+
 export type TootService = {
   readonly uploadMedia: (
     media: Buffer,

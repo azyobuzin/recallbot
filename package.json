@@ -15,8 +15,9 @@
     "test": "tsc -noEmit && NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "3.645.0",
-    "@aws-sdk/client-dynamodb": "3.648.0",
+    "@aws-sdk/client-bedrock-runtime": "3.649.0",
+    "@aws-sdk/client-dynamodb": "3.649.0",
+    "@aws-sdk/client-sns": "3.649.0",
     "@azure/ai-form-recognizer": "5.0.0",
     "jsdom": "25.0.0",
     "pdf-to-img": "4.1.0",
