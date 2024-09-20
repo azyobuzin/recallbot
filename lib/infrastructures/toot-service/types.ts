@@ -18,7 +18,10 @@ export type TootServiceDependencies = {
   mastodonAccessToken: string;
 };
 
-export type TootServiceFactory = (deps: TootServiceDependencies) => TootService;
+export type TootServiceFactory = {
+  (deps: TootServiceDependencies): TootService;
+  withDefaultDeps: () => TootService;
+};
 
 export type MediaToUpload = {
   bytes: Uint8Array;

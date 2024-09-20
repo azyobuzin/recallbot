@@ -9,9 +9,10 @@ export type AskAIToChooseToolDependencies = {
   bedrockRuntimeClient: BedrockRuntimeClient;
 };
 
-export type AskAIToChooseToolFactory = (
-  deps: AskAIToChooseToolDependencies
-) => AskAIToChooseTool;
+export type AskAIToChooseToolFactory = {
+  (deps: AskAIToChooseToolDependencies): AskAIToChooseTool;
+  withDefaultDeps: () => AskAIToChooseTool;
+};
 
 export type ChatMessageContentBlock =
   | { text: string }

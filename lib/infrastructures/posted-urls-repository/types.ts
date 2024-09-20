@@ -16,9 +16,10 @@ export type PostedUrlsRepositoryDependencies = {
   postedUrlsTableName: string;
 };
 
-export type PostedUrlsRepositoryFactory = (
-  deps: PostedUrlsRepositoryDependencies
-) => PostedUrlsRepository;
+export type PostedUrlsRepositoryFactory = {
+  (deps: PostedUrlsRepositoryDependencies): PostedUrlsRepository;
+  withDefaultDeps: () => PostedUrlsRepository;
+};
 
 export type PostedUrl = {
   url: string;

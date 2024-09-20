@@ -8,9 +8,10 @@ export type ExtractTablesFromPdfDependencies = {
   documentAnalysisClient: DocumentAnalysisClient;
 };
 
-export type ExtractTablesFromPdfFactory = (
-  deps: ExtractTablesFromPdfDependencies
-) => ExtractTablesFromPdf;
+export type ExtractTablesFromPdfFactory = {
+  (deps: ExtractTablesFromPdfDependencies): ExtractTablesFromPdf;
+  withDefaultDeps: () => ExtractTablesFromPdf;
+};
 
 export type ExtractTablesFromPdfOutput = {
   /** 抽出された表をCSV形式で表したもの */
