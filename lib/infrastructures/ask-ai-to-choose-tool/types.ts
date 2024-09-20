@@ -2,7 +2,7 @@ import type { BedrockRuntimeClient } from "@aws-sdk/client-bedrock-runtime";
 
 export type AskAIToChooseTool = (
   message: ChatMessageContentBlock[],
-  tools: ToolSpec[]
+  tools: ToolSpec[],
 ) => Promise<AskAIToChooseToolOutput>;
 
 export type AskAIToChooseToolDependencies = {

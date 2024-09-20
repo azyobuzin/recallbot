@@ -3,12 +3,22 @@ import jsdom from "jsdom";
 
 /**
  * @returns {Promise<string>}
+ * @deprecated
  */
 export async function pressreleaseRdf20240908() {
   const buf = await readFile(
     new URL("./fixtures/pressrelease_20240908.rdf", import.meta.url),
   );
   return new TextDecoder("shift_jis").decode(buf);
+}
+
+/**
+ * @returns {Promise<Uint8Array>}
+ */
+export async function pressreleaseRdf20240908Binary() {
+  return await readFile(
+    new URL("./fixtures/pressrelease_20240908.rdf", import.meta.url),
+  );
 }
 
 /**

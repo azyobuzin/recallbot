@@ -1,3 +1,3 @@
 export type ConvertPdfToImages = (
-  pdfBuffer: Uint8Array
+  pdfBuffer: Uint8Array,
 ) => Promise<Uint8Array[]>;

@@ -1,5 +1,5 @@
 import { describe, expect, jest, test } from "@jest/globals";
-import { postedUrlRepository } from "./index.mjs";
+import { postedUrlRepository } from "../../lib/infrastructures/index.mjs";
 
 const mockDynamoDbClient = {
   /** @type {jest.Mock<(command: unknown) => Promise<unknown>>} */
@@ -8,7 +8,7 @@ const mockDynamoDbClient = {
 
 const tableName = "table_name";
 
-/** @type {import("./types.ts").PostedUrlsRepositoryDependencies} */
+/** @type {import("../../lib/infrastructures/types.ts").PostedUrlsRepositoryDependencies} */
 const deps = {
   // @ts-expect-error
   dynamoDbClient: mockDynamoDbClient,

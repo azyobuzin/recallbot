@@ -5,12 +5,12 @@ export type TootService = {
 
 export type UploadMediaToMastodon = (
   media: MediaToUpload,
-  description?: string
+  description?: string,
 ) => Promise<MastodonMedia>;
 
 export type PostToMastodon = (
   status: string,
-  mediaIds: string[]
+  mediaIds: string[],
 ) => Promise<void>;
 
 export type TootServiceDependencies = {

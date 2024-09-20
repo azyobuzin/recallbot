@@ -1,7 +1,7 @@
 import type { DocumentAnalysisClient } from "@azure/ai-form-recognizer";
 
 export type ExtractTablesFromPdf = (
-  pdfBuffer: Uint8Array
+  pdfBuffer: Uint8Array,
 ) => Promise<ExtractTablesFromPdfOutput>;
 
 export type ExtractTablesFromPdfDependencies = {
