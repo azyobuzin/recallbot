@@ -1,4 +1,5 @@
 import type { BedrockRuntimeClient } from "@aws-sdk/client-bedrock-runtime";
+import type { ServiceFactoryWithDefault } from "../../types.ts";
 
 export type AskAIToChooseTool = (
   message: ChatMessageContentBlock[],
@@ -9,10 +10,10 @@ export type AskAIToChooseToolDependencies = {
   bedrockRuntimeClient: BedrockRuntimeClient;
 };
 
-export type AskAIToChooseToolFactory = {
-  (deps: AskAIToChooseToolDependencies): AskAIToChooseTool;
-  withDefaultDeps: () => AskAIToChooseTool;
-};
+export type AskAIToChooseToolFactory = ServiceFactoryWithDefault<
+  AskAIToChooseTool,
+  AskAIToChooseToolDependencies
+>;
 
 export type ChatMessageContentBlock =
   | { text: string }

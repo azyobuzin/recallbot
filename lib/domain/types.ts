@@ -17,9 +17,7 @@ export type RecallPressReleaseFeedItem<
 
 export type RecallPressReleasePageHtml<
   T extends RecallPressReleaseType = RecallPressReleaseType,
-> = {
-  recallPressReleaseType: T;
-  title: string;
+> = RecallPressReleaseFeedItem<T> & {
   html: string;
 };
 

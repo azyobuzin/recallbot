@@ -1,4 +1,5 @@
 import type { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { ServiceFactoryWithDefault } from "../../types.ts";
 
 export type PostedUrlsRepository = {
   /** 指定されたURLのうち、データベースに保存されているものを返します。 */
@@ -16,10 +17,10 @@ export type PostedUrlsRepositoryDependencies = {
   postedUrlsTableName: string;
 };
 
-export type PostedUrlsRepositoryFactory = {
-  (deps: PostedUrlsRepositoryDependencies): PostedUrlsRepository;
-  withDefaultDeps: () => PostedUrlsRepository;
-};
+export type PostedUrlsRepositoryFactory = ServiceFactoryWithDefault<
+  PostedUrlsRepository,
+  PostedUrlsRepositoryDependencies
+>;
 
 export type PostedUrl = {
   url: string;

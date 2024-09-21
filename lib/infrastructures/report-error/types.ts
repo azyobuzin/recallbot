@@ -1,4 +1,5 @@
 import type { SNSClient } from "@aws-sdk/client-sns";
+import { ServiceFactoryWithDefault } from "../../types.ts";
 
 export type ReportError = (error: unknown) => Promise<void>;
 
@@ -7,7 +8,7 @@ export type ReportErrorDependencies = {
   errorTopicArn?: string;
 };
 
-export type ReportErrorFactory = {
-  (deps: ReportErrorDependencies): ReportError;
-  withDefaultDeps(): ReportError;
-};
+export type ReportErrorFactory = ServiceFactoryWithDefault<
+  ReportError,
+  ReportErrorDependencies
+>;

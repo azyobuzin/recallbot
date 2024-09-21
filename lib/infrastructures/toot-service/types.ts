@@ -1,3 +1,5 @@
+import { ServiceFactoryWithDefault } from "../../types.ts";
+
 export type TootService = {
   uploadMediaToMastodon: UploadMediaToMastodon;
   postToMastodon: PostToMastodon;
@@ -18,10 +20,10 @@ export type TootServiceDependencies = {
   mastodonAccessToken: string;
 };
 
-export type TootServiceFactory = {
-  (deps: TootServiceDependencies): TootService;
-  withDefaultDeps: () => TootService;
-};
+export type TootServiceFactory = ServiceFactoryWithDefault<
+  TootService,
+  TootServiceDependencies
+>;
 
 export type MediaToUpload = {
   bytes: Uint8Array;

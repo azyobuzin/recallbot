@@ -1,4 +1,5 @@
 import type { DocumentAnalysisClient } from "@azure/ai-form-recognizer";
+import { ServiceFactoryWithDefault } from "../../types.ts";
 
 export type ExtractTablesFromPdf = (
   pdfBuffer: Uint8Array,
@@ -8,10 +9,10 @@ export type ExtractTablesFromPdfDependencies = {
   documentAnalysisClient: DocumentAnalysisClient;
 };
 
-export type ExtractTablesFromPdfFactory = {
-  (deps: ExtractTablesFromPdfDependencies): ExtractTablesFromPdf;
-  withDefaultDeps: () => ExtractTablesFromPdf;
-};
+export type ExtractTablesFromPdfFactory = ServiceFactoryWithDefault<
+  ExtractTablesFromPdf,
+  ExtractTablesFromPdfDependencies
+>;
 
 export type ExtractTablesFromPdfOutput = {
   /** 抽出された表をCSV形式で表したもの */

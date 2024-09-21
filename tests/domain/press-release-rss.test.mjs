@@ -1,5 +1,5 @@
 import { expect, test } from "@jest/globals";
-import { retrieveRecallPressReleaseFeedItems } from "../../lib/domain/retrieve-recall-press-release-feed-items/index.mjs";
+import { retrieveRecallPressReleaseFeedItems } from "../../lib/domain/press-release-rss/index.mjs";
 import { pressreleaseRdf20240908Binary } from "../fixtures.mjs";
 
 test("2024-09-08時点のRSSをparseして「リコールの届出について」のみを古い順に出力すること", async () => {
