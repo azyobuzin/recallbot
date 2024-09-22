@@ -1,6 +1,5 @@
 *
-!.tool-versions
 !lib
-!app.mjs
+!index.ts
 !package-lock.json
 !package.json
