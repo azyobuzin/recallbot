@@ -1,4 +1,5 @@
 *
+!.tool-versions
 !lib
 !app.mjs
 !package-lock.json
