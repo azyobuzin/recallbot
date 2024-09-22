@@ -1,5 +1,5 @@
 import type { DocumentAnalysisClient } from "@azure/ai-form-recognizer";
-import { ServiceFactoryWithDefault } from "../../types.ts";
+import type { ServiceFactoryWithDefault } from "../../types.ts";
 
 export type ExtractTablesFromPdf = (
   pdfBuffer: Uint8Array,

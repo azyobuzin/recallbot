@@ -2,7 +2,7 @@ import { describe, test, type TestContext } from "node:test";
 import {
   extractPdfLinks,
   extractPreamble,
-} from "../../../lib/domain/recall-press-release-page/utils.mjs";
+} from "../../../lib/domain/recall-press-release-page/utils.ts";
 import { recall20240906 } from "../../fixtures.mjs";
 
 describe("extractPreamble", () => {

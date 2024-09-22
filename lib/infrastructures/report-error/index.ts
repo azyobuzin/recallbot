@@ -1,7 +1,9 @@
 import { PublishCommand, SNSClient } from "@aws-sdk/client-sns";
+import type { ReportErrorFactory } from "./types.ts";
 
-/** @type {import("./types.ts").ReportErrorFactory} */
-export const reportError = (deps) => async (error) => {
+export type * from "./types.ts";
+
+export const reportError: ReportErrorFactory = (deps) => async (error) => {
   if (error == null || deps.snsClient == null || deps.errorTopicArn == null) {
     return;
   }

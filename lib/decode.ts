@@ -1,7 +1,6 @@
-/** @type {(encoding: string) => (input: Uint8Array) => string} */
-const makeDecoder = (encoding) => {
+const makeDecoder = (encoding: string) => {
   const decoder = new TextDecoder(encoding);
-  return (input) => decoder.decode(input);
+  return (input: Uint8Array) => decoder.decode(input);
 };
 
 export const decodeUtf8 = makeDecoder("utf8");

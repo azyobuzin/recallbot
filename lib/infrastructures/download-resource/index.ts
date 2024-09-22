@@ -1,10 +1,12 @@
 import { userAgent } from "../../constants.mjs";
+import type { DownloadResource } from "./types.ts";
+
+export type * from "./types.ts";
 
 /**
  * インターネットからファイルをダウンロードします。
- * @type {import("./types.ts").DownloadResource}
  */
-export const downloadResource = async (url, accept) => {
+export const downloadResource: DownloadResource = async (url, accept) => {
   const res = await fetch(url, {
     headers: {
       Accept: accept,

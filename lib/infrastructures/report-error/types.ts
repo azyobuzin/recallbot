@@ -1,5 +1,5 @@
 import type { SNSClient } from "@aws-sdk/client-sns";
-import { ServiceFactoryWithDefault } from "../../types.ts";
+import type { ServiceFactoryWithDefault } from "../../types.ts";
 
 export type ReportError = (error: unknown) => Promise<void>;
 

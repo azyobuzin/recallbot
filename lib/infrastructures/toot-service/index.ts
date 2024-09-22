@@ -1,8 +1,10 @@
 import { userAgent } from "../../constants.mjs";
-import { getEnv } from "../../env.mjs";
+import { getEnv } from "../../env.ts";
+import type { TootServiceFactory } from "./types.ts";
 
-/** @type {import("./types.ts").TootServiceFactory} */
-export const tootService = (deps) => {
+export type * from "./types.ts";
+
+export const tootService: TootServiceFactory = (deps) => {
   return {
     async uploadMediaToMastodon(media, description) {
       const body = new FormData();
@@ -40,12 +42,7 @@ export const tootService = (deps) => {
     },
   };
 
-  /**
-   * @param {string} url
-   * @param {RequestInit} options
-   * @returns {Promise<Response>}
-   */
-  async function request(url, options) {
+  async function request(url: string, options: RequestInit): Promise<Response> {
     const res = await fetch(new URL(url, deps.mastodonBaseUrl), {
       ...options,
       headers: {

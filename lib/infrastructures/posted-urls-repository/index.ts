@@ -3,10 +3,12 @@ import {
   DynamoDBClient,
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
-import { getEnv } from "../../env.mjs";
+import { getEnv } from "../../env.ts";
+import type { PostedUrlsRepositoryFactory } from "./types.ts";
 
-/** @type {import("./types.ts").PostedUrlsRepositoryFactory} */
-export const postedUrlRepository = (deps) => ({
+export type * from "./types.ts";
+
+export const postedUrlRepository: PostedUrlsRepositoryFactory = (deps) => ({
   async getStoredUrls(urls) {
     const command = new BatchGetItemCommand({
       RequestItems: {

@@ -1,4 +1,4 @@
-import { MediaToUpload } from "../infrastructures/types.ts";
+import { MediaToUpload } from "../infrastructures/index.ts";
 
 export type RssFeedItem = {
   title: string;

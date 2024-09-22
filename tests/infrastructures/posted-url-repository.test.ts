@@ -1,6 +1,8 @@
 import { afterEach, describe, mock, test, type TestContext } from "node:test";
-import { postedUrlRepository } from "../../lib/infrastructures/index.mjs";
-import type { PostedUrlsRepositoryDependencies } from "../../lib/infrastructures/types.ts";
+import {
+  postedUrlRepository,
+  type PostedUrlsRepositoryDependencies,
+} from "../../lib/infrastructures/index.ts";
 import type {
   BatchGetItemCommand,
   PutItemCommand,
