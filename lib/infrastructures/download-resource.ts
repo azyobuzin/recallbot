@@ -1,7 +1,9 @@
-import { userAgent } from "../../constants.mjs";
-import type { DownloadResource } from "./types.ts";
+import { userAgent } from "../constants.mjs";
 
-export type * from "./types.ts";
+export type DownloadResource = (
+  url: string,
+  acceptHeader: string,
+) => Promise<Uint8Array>;
 
 /**
  * インターネットからファイルをダウンロードします。

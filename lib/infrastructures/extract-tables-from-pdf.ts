@@ -3,10 +3,26 @@ import {
   DocumentAnalysisClient,
   type DocumentTable,
 } from "@azure/ai-form-recognizer";
-import { getEnv } from "../../env.ts";
-import type { ExtractTablesFromPdfFactory } from "./types.ts";
+import { getEnv } from "../env.ts";
+import type { ServiceFactoryWithDefault } from "../types.ts";
 
-export type * from "./types.ts";
+export type ExtractTablesFromPdf = (
+  pdfBuffer: Uint8Array,
+) => Promise<ExtractTablesFromPdfOutput>;
+
+export type ExtractTablesFromPdfDependencies = {
+  documentAnalysisClient: DocumentAnalysisClient;
+};
+
+export type ExtractTablesFromPdfFactory = ServiceFactoryWithDefault<
+  ExtractTablesFromPdf,
+  ExtractTablesFromPdfDependencies
+>;
+
+export type ExtractTablesFromPdfOutput = {
+  /** 抽出された表をCSV形式で表したもの */
+  csvs: string[];
+};
 
 /**
  * Azure AI Document Intelligenceを使ってPDFから表を抽出し、CSV形式で返します。

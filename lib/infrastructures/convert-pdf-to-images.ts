@@ -1,7 +1,8 @@
 import { pdf } from "pdf-to-img";
-import type { ConvertPdfToImages } from "./types.ts";
 
-export type * from "./types.ts";
+export type ConvertPdfToImages = (
+  pdfBuffer: Uint8Array,
+) => Promise<Uint8Array[]>;
 
 export const convertPdfToImages: ConvertPdfToImages = async (pdfBuffer) => {
   const results = [];
