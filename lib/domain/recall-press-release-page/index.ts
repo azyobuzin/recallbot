@@ -4,6 +4,7 @@ import {
   AcceptHeaderValue,
   DownloadResource,
 } from "../../infrastructures/index.ts";
+import type { ServiceFactory } from "../../types.ts";
 import type {
   RecallPressReleaseFeedItem,
   RecallPressReleasePage,
@@ -11,9 +12,6 @@ import type {
   RecallPressReleaseType,
 } from "../types.ts";
 import { extractPdfLinks, extractPreamble } from "./utils.ts";
-import type { RetrieveRecallPressReleasePageFactory } from "./types.ts";
-
-export type * from "./types.ts";
 
 type DownloadPressReleasePageDependencies = {
   downloadResource: DownloadResource;
@@ -48,6 +46,19 @@ const parseRecallPressReleasePage = <T extends RecallPressReleaseType>(
     pdfLinks: extractPdfLinks(dom),
   };
 };
+
+export type RetrieveRecallPressReleasePage = <T extends RecallPressReleaseType>(
+  feedItem: RecallPressReleaseFeedItem<T>,
+) => Promise<RecallPressReleasePage<T>>;
+
+export type RetrieveRecallPressReleasePageDependencies = {
+  downloadResource: DownloadResource;
+};
+
+export type RetrieveRecallPressReleasePageFactory = ServiceFactory<
+  RetrieveRecallPressReleasePage,
+  RetrieveRecallPressReleasePageDependencies
+>;
 
 export const retrieveRecallPressReleasePage: RetrieveRecallPressReleasePageFactory =
   (deps) => async (feedItem) => {

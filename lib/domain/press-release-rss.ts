@@ -1,14 +1,12 @@
 import jsdom from "jsdom";
-import { rssUrl } from "../../constants.mjs";
-import { decodeShiftJIS } from "../../decode.ts";
+import { rssUrl } from "../constants.mjs";
+import { decodeShiftJIS } from "../decode.ts";
 import {
   AcceptHeaderValue,
   type DownloadResource,
-} from "../../infrastructures/index.ts";
-import type { RecallPressReleaseFeedItem, RssFeedItem } from "../types.ts";
-import type { RetrieveRecallPressReleaseFeedItemsFactory } from "./types.ts";
-
-export type * from "./types.ts";
+} from "../infrastructures/index.ts";
+import type { ServiceFactory } from "../types.ts";
+import type { RecallPressReleaseFeedItem, RssFeedItem } from "./types.ts";
 
 type DownloadPressReleaseRssDependencies = {
   downloadResource: DownloadResource;
@@ -51,6 +49,18 @@ const pickRecallPressReleaseFeedItems = (
       }
     })
     .filter((x) => x != null);
+
+export type RetrieveRecallPressReleaseFeedItems = () => Promise<
+  RecallPressReleaseFeedItem[]
+>;
+
+export type RetrieveRecallPressReleaseFeedItemsDependencies =
+  DownloadPressReleaseRssDependencies;
+
+export type RetrieveRecallPressReleaseFeedItemsFactory = ServiceFactory<
+  RetrieveRecallPressReleaseFeedItems,
+  RetrieveRecallPressReleaseFeedItemsDependencies
+>;
 
 export const retrieveRecallPressReleaseFeedItems: RetrieveRecallPressReleaseFeedItemsFactory =
   (deps) => async () => {

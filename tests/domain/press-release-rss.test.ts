@@ -1,5 +1,5 @@
 import { test, type TestContext } from "node:test";
-import { retrieveRecallPressReleaseFeedItems } from "../../lib/domain/press-release-rss/index.ts";
+import { retrieveRecallPressReleaseFeedItems } from "../../lib/domain/press-release-rss.ts";
 import { pressreleaseRdf20240908Binary } from "../fixtures.mjs";
 
 test("2024-09-08時点のRSSをparseして「リコールの届出について」のみを古い順に出力すること", async (t: TestContext) => {
