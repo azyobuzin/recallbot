@@ -17,6 +17,7 @@ type DownloadPressReleasePageDependencies = {
   downloadResource: DownloadResource;
 };
 
+/** フィードに添付されたURLのページをダウンロードします。 */
 const downloadRecallPressReleasePage =
   (deps: DownloadPressReleasePageDependencies) =>
   async <T extends RecallPressReleaseType>(
@@ -41,6 +42,7 @@ const parseRecallPressReleasePage = <T extends RecallPressReleaseType>(
   });
   return {
     recallPressReleaseType: pageWithHtml.recallPressReleaseType,
+    pressReleaseUrl: pageWithHtml.link,
     title: pageWithHtml.title,
     preamble: extractPreamble(dom),
     pdfLinks: extractPdfLinks(dom),
@@ -60,7 +62,8 @@ export type RetrieveRecallPressReleasePageFactory = ServiceFactory<
   RetrieveRecallPressReleasePageDependencies
 >;
 
-export const retrieveRecallPressReleasePage: RetrieveRecallPressReleasePageFactory =
+/** プレスリリースのページを解析し、本文と添付されたPDFへのリンクを取得します。 */
+export const analyzeRecallPressReleasePage: RetrieveRecallPressReleasePageFactory =
   (deps) => async (feedItem) => {
     const pageWithHtml = await downloadRecallPressReleasePage(deps)(feedItem);
     return parseRecallPressReleasePage(pageWithHtml);

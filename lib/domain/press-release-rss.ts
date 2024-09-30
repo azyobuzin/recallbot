@@ -62,6 +62,7 @@ export type RetrieveRecallPressReleaseFeedItemsFactory = ServiceFactory<
   RetrieveRecallPressReleaseFeedItemsDependencies
 >;
 
+/** プレスリリースのRSSをダウンロードし、リコール届出に関するフィードのみを抽出します。 */
 export const retrieveRecallPressReleaseFeedItems: RetrieveRecallPressReleaseFeedItemsFactory =
   (deps) => async () => {
     const rss = await downloadPressReleaseRss(deps)();
