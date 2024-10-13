@@ -21,7 +21,7 @@ export type TootServiceDeps = {
   mastodonAccessToken: string;
 };
 
-export type TootServiceFactory = ServiceFactoryWithDefault<
+type TootServiceFactory = ServiceFactoryWithDefault<
   TootService,
   TootServiceDeps
 >;

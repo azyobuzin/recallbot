@@ -18,7 +18,7 @@ export type AskAIToChooseToolDeps = {
   bedrockRuntimeClient: BedrockRuntimeClient;
 };
 
-export type AskAIToChooseToolFactory = ServiceFactoryWithDefault<
+type AskAIToChooseToolFactory = ServiceFactoryWithDefault<
   AskAIToChooseTool,
   AskAIToChooseToolDeps
 >;

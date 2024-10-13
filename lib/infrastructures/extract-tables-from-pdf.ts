@@ -14,7 +14,7 @@ export type ExtractTablesFromPdfDeps = {
   documentAnalysisClient: DocumentAnalysisClient;
 };
 
-export type ExtractTablesFromPdfFactory = ServiceFactoryWithDefault<
+type ExtractTablesFromPdfFactory = ServiceFactoryWithDefault<
   ExtractTablesFromPdf,
   ExtractTablesFromPdfDeps
 >;

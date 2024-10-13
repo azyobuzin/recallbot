@@ -22,7 +22,7 @@ export type PostedUrlsRepositoryDeps = {
   postedUrlsTableName: string;
 };
 
-export type PostedUrlsRepositoryFactory = ServiceFactoryWithDefault<
+type PostedUrlsRepositoryFactory = ServiceFactoryWithDefault<
   PostedUrlsRepository,
   PostedUrlsRepositoryDeps
 >;

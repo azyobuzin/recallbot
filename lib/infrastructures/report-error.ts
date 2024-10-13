@@ -8,7 +8,7 @@ export type ReportErrorDeps = {
   errorTopicArn?: string;
 };
 
-export type ReportErrorFactory = ServiceFactoryWithDefault<
+type ReportErrorFactory = ServiceFactoryWithDefault<
   ReportError,
   ReportErrorDeps
 >;

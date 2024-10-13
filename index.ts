@@ -1,6 +1,7 @@
 import { EventBridgeHandler } from "aws-lambda";
-import { DefaultRecallbotService } from "./lib/recallbot-service.mjs";
+import { postRecallsToMastodon } from "./lib/workflows/index.ts";
 
 export const handler: EventBridgeHandler<string, unknown, void> = async () => {
-  await DefaultRecallbotService.createDefault().execute();
+  const workflow = postRecallsToMastodon.withDefaultDeps();
+  await workflow();
 };
