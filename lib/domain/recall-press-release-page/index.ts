@@ -9,7 +9,6 @@ import type {
   RecallPressReleaseFeedItem,
   RecallPressReleasePage,
   RecallPressReleasePageHtml,
-  RecallPressReleaseType,
 } from "../types.ts";
 import { extractPdfLinks, extractPreamble } from "./utils.ts";
 
@@ -20,9 +19,9 @@ type DownloadPressReleasePageDependencies = {
 /** フィードに添付されたURLのページをダウンロードします。 */
 const downloadRecallPressReleasePage =
   (deps: DownloadPressReleasePageDependencies) =>
-  async <T extends RecallPressReleaseType>(
-    feedItem: RecallPressReleaseFeedItem<T>,
-  ): Promise<RecallPressReleasePageHtml<T>> => {
+  async (
+    feedItem: RecallPressReleaseFeedItem,
+  ): Promise<RecallPressReleasePageHtml> => {
     const buf = await deps.downloadResource(
       feedItem.link,
       AcceptHeaderValue.html,
@@ -33,9 +32,9 @@ const downloadRecallPressReleasePage =
     };
   };
 
-const parseRecallPressReleasePage = <T extends RecallPressReleaseType>(
-  pageWithHtml: RecallPressReleasePageHtml<T>,
-): RecallPressReleasePage<T> => {
+const parseRecallPressReleasePage = (
+  pageWithHtml: RecallPressReleasePageHtml,
+): RecallPressReleasePage => {
   const dom = new jsdom.JSDOM(pageWithHtml.html, {
     url: pageWithHtml.link,
     contentType: "text/html",
@@ -49,9 +48,9 @@ const parseRecallPressReleasePage = <T extends RecallPressReleaseType>(
   };
 };
 
-export type RetrieveRecallPressReleasePage = <T extends RecallPressReleaseType>(
-  feedItem: RecallPressReleaseFeedItem<T>,
-) => Promise<RecallPressReleasePage<T>>;
+export type RetrieveRecallPressReleasePage = (
+  feedItem: RecallPressReleaseFeedItem,
+) => Promise<RecallPressReleasePage>;
 
 export type RetrieveRecallPressReleasePageDependencies = {
   downloadResource: DownloadResource;

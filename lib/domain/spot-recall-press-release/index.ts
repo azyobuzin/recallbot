@@ -8,7 +8,7 @@ import type { ServiceFactory } from "../../types.ts";
 import type {
   CompleteSpotRecallPressRelease,
   ContentToPost,
-  RecallPressReleasePage,
+  SpotRecallPressReleasePage,
   SpotRecallListContent,
   SpotRecallPressReleaseWithPdf,
   SpotRecallPressReleaseWithPdfUrl,
@@ -21,7 +21,7 @@ import {
 import { extractCarNameFromTitle } from "./utils.ts";
 
 const extractFromHtml = (
-  input: RecallPressReleasePage<"spot">,
+  input: SpotRecallPressReleasePage,
 ): SpotRecallPressReleaseWithPdfUrl => {
   const recallListPdfUrl = input.pdfLinks.find(
     (x) => x.title === "リコール届出一覧表",
@@ -90,7 +90,7 @@ type AnalyzeSpotRecallPressReleaseDependencies = DownloadPdfsDependencies &
 const analyzeSpotRecallPressRelease =
   (deps: AnalyzeSpotRecallPressReleaseDependencies) =>
   async (
-    input: RecallPressReleasePage<"spot">,
+    input: SpotRecallPressReleasePage,
   ): Promise<CompleteSpotRecallPressRelease> => {
     const extractedFromHtml = extractFromHtml(input);
     const downloadedPdfs = await downloadPdfs(deps)(extractedFromHtml);
@@ -124,16 +124,17 @@ ${input.pressReleaseUrl}`;
 
   const media = input.illustrations.map(
     (bytes): MediaToUpload => ({
+      description: "改善箇所説明図",
       bytes,
       mimeType: "image/png",
     }),
   );
 
-  return { status, media };
+  return { pressReleaseUrl: input.pressReleaseUrl, status, media };
 };
 
 export type CreatePostForSpotRecallPressRelease = (
-  input: RecallPressReleasePage<"spot">,
+  input: SpotRecallPressReleasePage,
 ) => Promise<ContentToPost>;
 
 export type CreatePostForSpotRecallPressReleaseDependencies =

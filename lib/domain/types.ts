@@ -9,20 +9,16 @@ export type RecallPressReleaseType =
   | "spot" // 100件以上のリコール
   | "monthly"; // 月1回発表される100件未満のリコール
 
-export type RecallPressReleaseFeedItem<
-  T extends RecallPressReleaseType = RecallPressReleaseType,
-> = {
-  recallPressReleaseType: T;
+export type RecallPressReleaseFeedItem = {
+  recallPressReleaseType: RecallPressReleaseType;
 } & RssFeedItem;
 
-export type RecallPressReleasePageHtml<
-  T extends RecallPressReleaseType = RecallPressReleaseType,
-> = RecallPressReleaseFeedItem<T> & {
+export type RecallPressReleasePageHtml = RecallPressReleaseFeedItem & {
   html: string;
 };
 
 export type RecallPressReleasePage<
-  T extends RecallPressReleaseType = RecallPressReleaseType,
+  T extends RecallPressReleaseType = "spot" | "monthly",
 > = {
   recallPressReleaseType: T;
   pressReleaseUrl: string;
@@ -35,6 +31,8 @@ export type PdfLink = {
   title: string;
   href: string;
 };
+
+export type SpotRecallPressReleasePage = RecallPressReleasePage<"spot">;
 
 export type SpotRecallPressReleaseWithPdfUrl = {
   /** プレスリリースのURL */
@@ -89,6 +87,10 @@ export type CompleteSpotRecallPressRelease = {
 };
 
 export type ContentToPost = {
+  /** プレスリリースのURL */
+  pressReleaseUrl: string;
+  /** トゥート本文 */
   status: string;
+  /** 添付画像 */
   media: MediaToUpload[];
 };

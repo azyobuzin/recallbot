@@ -2,7 +2,7 @@ import { userAgent } from "../constants.mjs";
 
 export type DownloadResource = (
   url: string,
-  acceptHeader: string,
+  acceptHeader: AcceptHeaderValue,
 ) => Promise<Uint8Array>;
 
 /**
@@ -26,3 +26,6 @@ export const AcceptHeaderValue = {
   rss: "application/rss+xml, application/xml, text/xml",
   pdf: "application/pdf",
 };
+
+export type AcceptHeaderValue =
+  (typeof AcceptHeaderValue)[keyof typeof AcceptHeaderValue];

@@ -33,19 +33,19 @@ const pickRecallPressReleaseFeedItems = (
   feedItems: RssFeedItem[],
 ): RecallPressReleaseFeedItem[] =>
   feedItems
-    .map((item) => {
+    .map<RecallPressReleaseFeedItem | undefined>((item) => {
       if (item.title.includes("リコールの届出について")) {
         return {
           title: item.title,
           link: item.link,
           recallPressReleaseType: "spot",
-        } as RecallPressReleaseFeedItem<"spot">;
+        };
       } else if (item.title.includes("少数台数のリコール届出の公表について")) {
         return {
           title: item.title,
           link: item.link,
           recallPressReleaseType: "monthly",
-        } as RecallPressReleaseFeedItem<"monthly">;
+        };
       }
     })
     .filter((x) => x != null);

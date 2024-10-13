@@ -9,7 +9,6 @@ export type TootService = {
 
 export type UploadMediaToMastodon = (
   media: MediaToUpload,
-  description?: string,
 ) => Promise<MastodonMedia>;
 
 export type PostToMastodon = (
@@ -28,6 +27,7 @@ export type TootServiceFactory = ServiceFactoryWithDefault<
 >;
 
 export type MediaToUpload = {
+  description?: string;
   bytes: Uint8Array;
   mimeType: "image/png";
 };
@@ -38,11 +38,11 @@ export type MastodonMedia = {
 
 export const tootService: TootServiceFactory = (deps) => {
   return {
-    async uploadMediaToMastodon(media, description) {
+    async uploadMediaToMastodon({ description, bytes, mimeType }) {
       const body = new FormData();
       body.append(
         "file",
-        new Blob([media.bytes], { type: media.mimeType }),
+        new Blob([bytes], { type: mimeType }),
         "image.png", // TODO: mimeTypeがpng以外に対応したら拡張子を変える
       );
       if (description != null) {
