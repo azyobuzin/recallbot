@@ -1,22 +1,22 @@
 import {
+  type AskAIToChooseTool,
+  type ConvertPdfToImages,
+  type DownloadResource,
+  type ExtractTablesFromPdf,
+  type MediaToUpload,
+  type PostToMastodon,
+  type ReportError,
+  type SavePostedUrl,
+  type UploadMediaToMastodon,
   askAIToChooseTool,
-  AskAIToChooseTool,
   convertPdfToImages,
-  ConvertPdfToImages,
   downloadResource,
-  DownloadResource,
   extractTablesFromPdf,
-  ExtractTablesFromPdf,
-  MediaToUpload,
   postedUrlRepository,
-  PostToMastodon,
   reportError,
-  ReportError,
-  SavePostedUrl,
   tootService,
-  UploadMediaToMastodon,
 } from "../../infrastructures/index.ts";
-import { ServiceFactoryWithDefault } from "../../types.ts";
+import type { ServiceFactoryWithDefault } from "../../types.ts";
 import { createPostsFromPressReleases } from "./create-posts-from-press-releases.ts";
 import type { ContentToPost } from "./types.ts";
 

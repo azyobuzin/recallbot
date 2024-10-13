@@ -68,10 +68,10 @@ const toolOutputResult: ToolSpec = {
 
 function createPrompt(csvs: string[]): string {
   // 表をCSV形式にして、プロンプトに含ませる
-  let prompt = prompt1 + "\n\n";
+  let prompt = `${prompt1}\n\n`;
   prompt += "<documents>\n";
   for (const csv of csvs) {
-    prompt += "<document>\n" + csv + "\n</document>\n";
+    prompt += `<document>\n${csv}\n</document>\n`;
   }
   prompt += "</documents>\n\n";
   prompt += prompt2;

@@ -1,17 +1,16 @@
 import {
   AcceptHeaderValue,
   type AskAIToChooseTool,
-  type ExtractTablesFromPdf,
   type ConvertPdfToImages,
   type DownloadResource,
+  type ExtractTablesFromPdf,
   type MediaToUpload,
 } from "../../../infrastructures/index.ts";
-import type { ServiceFactory } from "../../../types.ts";
 import type {
   CompleteSpotRecallPressRelease,
   ContentToPost,
-  SpotRecallPressReleasePage,
   SpotRecallListContent,
+  SpotRecallPressReleasePage,
   SpotRecallPressReleaseWithPdf,
   SpotRecallPressReleaseWithPdfUrl,
 } from "../types.ts";

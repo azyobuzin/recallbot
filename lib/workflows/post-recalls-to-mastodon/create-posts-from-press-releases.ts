@@ -1,5 +1,5 @@
 import { Result } from "typescript-result";
-import {
+import type {
   AskAIToChooseTool,
   ConvertPdfToImages,
   DownloadResource,
@@ -8,7 +8,7 @@ import {
 import { retrieveRecallPressReleaseFeedItems } from "./press-release-rss.ts";
 import { analyzeRecallPressReleasePage } from "./recall-press-release-page/index.ts";
 import { createPostForSpotRecallPressRelease } from "./spot-recall-press-release/index.ts";
-import { ContentToPost, SpotRecallPressReleasePage } from "./types.ts";
+import type { ContentToPost, SpotRecallPressReleasePage } from "./types.ts";
 
 type CreatePostsFromPressReleasesDeps = {
   askAIToChooseTool: AskAIToChooseTool;

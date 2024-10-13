@@ -1,12 +1,12 @@
-import { afterEach, describe, mock, test, type TestContext } from "node:test";
-import {
-  postedUrlRepository,
-  type PostedUrlsRepositoryDeps,
-} from "./posted-urls-repository.ts";
+import { type TestContext, afterEach, describe, mock, test } from "node:test";
 import type {
   BatchGetItemCommand,
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
+import {
+  type PostedUrlsRepositoryDeps,
+  postedUrlRepository,
+} from "./posted-urls-repository.ts";
 
 const mockDynamoDbClient = {
   send: mock.fn<(command: unknown) => Promise<unknown>>(),

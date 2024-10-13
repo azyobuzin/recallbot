@@ -29,7 +29,8 @@ const extractedRecallListSchema = z.object({
   situation: z.string(),
   // "9,972台" などの文字列が入ってくることがあるので対応する
   numCars: z.preprocess(
-    (x) => (typeof x === "string" ? parseInt(x.replace(",", ""), 10) : x),
+    (x) =>
+      typeof x === "string" ? Number.parseInt(x.replace(",", ""), 10) : x,
     z.number().int().positive(),
   ),
 });

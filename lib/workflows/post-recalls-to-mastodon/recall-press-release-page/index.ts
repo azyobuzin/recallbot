@@ -2,7 +2,7 @@ import jsdom from "jsdom";
 import { decodeUtf8 } from "../../../decode.ts";
 import {
   AcceptHeaderValue,
-  DownloadResource,
+  type DownloadResource,
 } from "../../../infrastructures/index.ts";
 import type {
   RecallPressReleaseFeedItem,

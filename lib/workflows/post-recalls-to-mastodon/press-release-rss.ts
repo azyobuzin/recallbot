@@ -38,7 +38,8 @@ const pickRecallPressReleaseFeedItems = (
           link: item.link,
           recallPressReleaseType: "spot",
         };
-      } else if (item.title.includes("少数台数のリコール届出の公表について")) {
+      }
+      if (item.title.includes("少数台数のリコール届出の公表について")) {
         return {
           title: item.title,
           link: item.link,

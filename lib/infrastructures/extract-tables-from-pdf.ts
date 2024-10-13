@@ -64,8 +64,11 @@ function tableToCsv(table: DocumentTable): string {
     // ダブルクオート、カンマが含まれていたらダブルクオートで囲む
     if (content.match(/[",]/)) content = `"${content.replace(/"/g, '""')}"`;
 
-    const columns = (rows[cell.rowIndex] ||= []);
-    columns.push(content);
+    if (rows[cell.rowIndex]) {
+      rows[cell.rowIndex].push(content);
+    } else {
+      rows[cell.rowIndex] = [content];
+    }
   }
 
   return rows.map((x) => x.join(",")).join("\n");

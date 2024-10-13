@@ -105,6 +105,7 @@ function toOutput(
   if (!result) throw new Error("No toolUse in bedrockOutput");
 
   return {
+    // biome-ignore lint/style/noNonNullAssertion: findの条件でチェック済み
     name: result.name!,
     input: result.input,
   };

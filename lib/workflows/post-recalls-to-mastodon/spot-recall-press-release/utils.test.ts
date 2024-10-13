@@ -1,4 +1,4 @@
-import { describe, test, type TestContext } from "node:test";
+import { type TestContext, describe, test } from "node:test";
 import { extractCarNameFromTitle, parseAssistantResult } from "./utils.ts";
 
 describe("extractCarNameFromTitle", () => {
