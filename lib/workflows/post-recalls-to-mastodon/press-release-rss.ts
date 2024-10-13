@@ -1,5 +1,5 @@
 import jsdom from "jsdom";
-import { rssUrl } from "../../constants.mjs";
+import { rssUrl } from "../../constants.ts";
 import { decodeShiftJIS } from "../../decode.ts";
 import {
   AcceptHeaderValue,

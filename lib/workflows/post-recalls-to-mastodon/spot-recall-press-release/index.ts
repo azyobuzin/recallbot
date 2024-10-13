@@ -69,16 +69,14 @@ type ExtractFromPdfDeps = {
   extractTablesFromPdf: ExtractTablesFromPdf;
 };
 
-const extractFromPdf =
+export const extractFromPdf =
   (deps: ExtractFromPdfDeps) =>
-  async (
-    input: SpotRecallPressReleaseWithPdf,
-  ): Promise<SpotRecallListContent> => {
+  async (recallListPdf: Uint8Array): Promise<SpotRecallListContent> => {
     // NOTE: Document Intelligenceでは https://www.mlit.go.jp/report/press/jidosha08_hh_005143.html を正しく抽出できなかったため、先にBedrockのみを試す
-    let result = await extractWithBedrock(deps)(input.recallListPdf);
+    let result = await extractWithBedrock(deps)(recallListPdf);
     if (result) return result;
 
-    result = await extractWithDocumentIntelligence(deps)(input.recallListPdf);
+    result = await extractWithDocumentIntelligence(deps)(recallListPdf);
     if (result) return result;
 
     throw new Error("Failed to extract recall details.");
@@ -97,7 +95,7 @@ const analyzeSpotRecallPressRelease =
     const extractedFromHtml = extractFromHtml(input);
     const downloadedPdfs = await downloadPdfs(deps)(extractedFromHtml);
     const [extractedFromPdf, illustrations] = await Promise.all([
-      extractFromPdf(deps)(downloadedPdfs),
+      extractFromPdf(deps)(downloadedPdfs.recallListPdf),
       downloadedPdfs.illustrationPdf
         ? deps.convertPdfToImages(downloadedPdfs.illustrationPdf)
         : Promise.resolve([]),

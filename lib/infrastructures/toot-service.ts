@@ -1,4 +1,4 @@
-import { userAgent } from "../constants.mjs";
+import { userAgent } from "../constants.ts";
 import { getEnv } from "../env.ts";
 import type { ServiceFactoryWithDefault } from "../types.ts";
 

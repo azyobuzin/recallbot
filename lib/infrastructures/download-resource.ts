@@ -1,4 +1,4 @@
-import { userAgent } from "../constants.mjs";
+import { userAgent } from "../constants.ts";
 
 export type DownloadResource = (
   url: string,
