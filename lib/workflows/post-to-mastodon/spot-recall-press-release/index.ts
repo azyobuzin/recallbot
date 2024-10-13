@@ -1,10 +1,12 @@
 import {
   AcceptHeaderValue,
+  type AskAIToChooseTool,
+  type ExtractTablesFromPdf,
   type ConvertPdfToImages,
   type DownloadResource,
   type MediaToUpload,
-} from "../../infrastructures/index.ts";
-import type { ServiceFactory } from "../../types.ts";
+} from "../../../infrastructures/index.ts";
+import type { ServiceFactory } from "../../../types.ts";
 import type {
   CompleteSpotRecallPressRelease,
   ContentToPost,
@@ -14,10 +16,7 @@ import type {
   SpotRecallPressReleaseWithPdfUrl,
 } from "../types.ts";
 import { extractWithBedrock } from "./extract-with-bedrock.ts";
-import {
-  extractWithDocumentIntelligence,
-  ExtractWithDocumentIntelligenceDependencies,
-} from "./extract-with-document-intelligence.ts";
+import { extractWithDocumentIntelligence } from "./extract-with-document-intelligence.ts";
 import { extractCarNameFromTitle } from "./utils.ts";
 
 const extractFromHtml = (
@@ -65,7 +64,10 @@ const downloadPdfs =
     };
   };
 
-type ExtractFromPdfDependencies = ExtractWithDocumentIntelligenceDependencies;
+type ExtractFromPdfDependencies = {
+  askAIToChooseTool: AskAIToChooseTool;
+  extractTablesFromPdf: ExtractTablesFromPdf;
+};
 
 const extractFromPdf =
   (deps: ExtractFromPdfDependencies) =>
@@ -133,20 +135,12 @@ ${input.pressReleaseUrl}`;
   return { pressReleaseUrl: input.pressReleaseUrl, status, media };
 };
 
-export type CreatePostForSpotRecallPressRelease = (
-  input: SpotRecallPressReleasePage,
-) => Promise<ContentToPost>;
-
-export type CreatePostForSpotRecallPressReleaseDependencies =
+type CreatePostForSpotRecallPressReleaseDependencies =
   AnalyzeSpotRecallPressReleaseDependencies;
 
-export type CreatePostForSpotRecallPressReleaseFactory = ServiceFactory<
-  CreatePostForSpotRecallPressRelease,
-  CreatePostForSpotRecallPressReleaseDependencies
->;
-
-export const createPostForSpotRecallPressRelease: CreatePostForSpotRecallPressReleaseFactory =
-  (deps) => async (input) => {
+export const createPostForSpotRecallPressRelease =
+  (deps: CreatePostForSpotRecallPressReleaseDependencies) =>
+  async (input: SpotRecallPressReleasePage) => {
     const analyzed = await analyzeSpotRecallPressRelease(deps)(input);
     return toContentToPost(analyzed);
   };

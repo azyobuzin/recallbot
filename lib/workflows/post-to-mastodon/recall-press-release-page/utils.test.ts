@@ -1,9 +1,6 @@
 import { describe, test, type TestContext } from "node:test";
-import {
-  extractPdfLinks,
-  extractPreamble,
-} from "../../../lib/domain/recall-press-release-page/utils.ts";
-import { recall20240906 } from "../../fixtures.mjs";
+import { extractPdfLinks, extractPreamble } from "./utils.ts";
+import { recall20240906 } from "../../../../test-utils/fixtures.ts";
 
 describe("extractPreamble", () => {
   test("2024-09-06のプレスリリースページから冒頭の文章を抽出できること", async (t: TestContext) => {

@@ -2,7 +2,7 @@ import { afterEach, describe, mock, test, type TestContext } from "node:test";
 import {
   postedUrlRepository,
   type PostedUrlsRepositoryDependencies,
-} from "../../lib/infrastructures/index.ts";
+} from "./posted-urls-repository.ts";
 import type {
   BatchGetItemCommand,
   PutItemCommand,

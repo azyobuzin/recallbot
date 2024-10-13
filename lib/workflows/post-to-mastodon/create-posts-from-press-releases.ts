@@ -4,13 +4,13 @@ import {
   ConvertPdfToImages,
   DownloadResource,
   ExtractTablesFromPdf,
-} from "../infrastructures/index.ts";
+} from "../../infrastructures/index.ts";
 import { retrieveRecallPressReleaseFeedItems } from "./press-release-rss.ts";
 import { analyzeRecallPressReleasePage } from "./recall-press-release-page/index.ts";
 import { createPostForSpotRecallPressRelease } from "./spot-recall-press-release/index.ts";
 import { ContentToPost, SpotRecallPressReleasePage } from "./types.ts";
 
-export type CreatePostsFromPressReleasesDependencies = {
+type CreatePostsFromPressReleasesDependencies = {
   askAIToChooseTool: AskAIToChooseTool;
   convertPdfToImages: ConvertPdfToImages;
   downloadResource: DownloadResource;

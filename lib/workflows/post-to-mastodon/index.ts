@@ -8,9 +8,11 @@ import {
   ReportError,
   SavePostedUrl,
   UploadMediaToMastodon,
-} from "../infrastructures/index.ts";
+} from "../../infrastructures/index.ts";
 import { createPostsFromPressReleases } from "./create-posts-from-press-releases.ts";
-import { ContentToPost } from "./types.ts";
+import type { ContentToPost } from "./types.ts";
+
+export type { ContentToPost } from "./types.ts";
 
 type UploadMediaInParallelDependencies = {
   uploadMediaToMastodon: UploadMediaToMastodon;

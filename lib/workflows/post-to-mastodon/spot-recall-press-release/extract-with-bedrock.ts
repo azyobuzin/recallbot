@@ -2,11 +2,11 @@ import type {
   AskAIToChooseTool,
   ChatMessageContentBlock,
   ToolSpec,
-} from "../../infrastructures/index.ts";
+} from "../../../infrastructures/index.ts";
 import type { SpotRecallListContent } from "../types.ts";
 import { parseAssistantResult } from "./utils.ts";
 
-export type ExtractWithBedrockDependencies = {
+type ExtractWithBedrockDependencies = {
   askAIToChooseTool: AskAIToChooseTool;
 };
 

@@ -1,11 +1,10 @@
 import jsdom from "jsdom";
-import { rssUrl } from "../constants.mjs";
-import { decodeShiftJIS } from "../decode.ts";
+import { rssUrl } from "../../constants.mjs";
+import { decodeShiftJIS } from "../../decode.ts";
 import {
   AcceptHeaderValue,
   type DownloadResource,
-} from "../infrastructures/index.ts";
-import type { ServiceFactory } from "../types.ts";
+} from "../../infrastructures/index.ts";
 import type { RecallPressReleaseFeedItem, RssFeedItem } from "./types.ts";
 
 type DownloadPressReleaseRssDependencies = {
@@ -50,21 +49,12 @@ const pickRecallPressReleaseFeedItems = (
     })
     .filter((x) => x != null);
 
-export type RetrieveRecallPressReleaseFeedItems = () => Promise<
-  RecallPressReleaseFeedItem[]
->;
-
-export type RetrieveRecallPressReleaseFeedItemsDependencies =
+type RetrieveRecallPressReleaseFeedItemsDependencies =
   DownloadPressReleaseRssDependencies;
 
-export type RetrieveRecallPressReleaseFeedItemsFactory = ServiceFactory<
-  RetrieveRecallPressReleaseFeedItems,
-  RetrieveRecallPressReleaseFeedItemsDependencies
->;
-
 /** プレスリリースのRSSをダウンロードし、リコール届出に関するフィードのみを抽出します。 */
-export const retrieveRecallPressReleaseFeedItems: RetrieveRecallPressReleaseFeedItemsFactory =
-  (deps) => async () => {
+export const retrieveRecallPressReleaseFeedItems =
+  (deps: RetrieveRecallPressReleaseFeedItemsDependencies) => async () => {
     const rss = await downloadPressReleaseRss(deps)();
     const decodedRss = decodeShiftJIS(rss);
     const feedItems = parseRss(decodedRss);

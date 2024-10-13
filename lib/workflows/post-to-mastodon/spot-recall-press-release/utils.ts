@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { AskAIToChooseToolOutput } from "../../infrastructures/ask-ai-to-choose-tool.ts";
+import type { AskAIToChooseToolOutput } from "../../../infrastructures/ask-ai-to-choose-tool.ts";
 import type { SpotRecallListContent } from "../types.ts";
 
 /**

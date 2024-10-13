@@ -12,8 +12,8 @@
   "private": true,
   "scripts": {
     "build": "esbuild index.ts --bundle --outfile=index.mjs --platform=node --format=esm --packages=external",
-    "fix": "prettier --ignore-path .gitignore --write . !package-lock.json !tests/fixtures/**",
-    "test": "tsc -noEmit && tsx --test $(find tests -name '*.test.ts')"
+    "fix": "prettier --ignore-path .gitignore --write . !package-lock.json !tests/fixtures/** !test-utils/fixtures/**",
+    "test": "tsc -noEmit && tsx --test $(find lib -name '*.test.ts')"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "3.654.0",

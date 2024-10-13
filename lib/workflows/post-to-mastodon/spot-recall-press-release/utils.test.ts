@@ -1,8 +1,5 @@
 import { describe, test, type TestContext } from "node:test";
-import {
-  extractCarNameFromTitle,
-  parseAssistantResult,
-} from "../../../lib/domain/spot-recall-press-release/utils.ts";
+import { extractCarNameFromTitle, parseAssistantResult } from "./utils.ts";
 
 describe("extractCarNameFromTitle", () => {
   test("正しく抽出できること", (t: TestContext) => {

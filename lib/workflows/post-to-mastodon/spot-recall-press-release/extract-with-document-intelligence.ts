@@ -2,11 +2,11 @@ import type {
   AskAIToChooseTool,
   ExtractTablesFromPdf,
   ToolSpec,
-} from "../../infrastructures/index.ts";
+} from "../../../infrastructures/index.ts";
 import type { SpotRecallListContent } from "../types.ts";
 import { parseAssistantResult } from "./utils.ts";
 
-export type ExtractWithDocumentIntelligenceDependencies = {
+type ExtractWithDocumentIntelligenceDependencies = {
   askAIToChooseTool: AskAIToChooseTool;
   extractTablesFromPdf: ExtractTablesFromPdf;
 };
