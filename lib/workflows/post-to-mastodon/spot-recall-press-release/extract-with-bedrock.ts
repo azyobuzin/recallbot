@@ -6,7 +6,7 @@ import type {
 import type { SpotRecallListContent } from "../types.ts";
 import { parseAssistantResult } from "./utils.ts";
 
-type ExtractWithBedrockDependencies = {
+type ExtractWithBedrockDeps = {
   askAIToChooseTool: AskAIToChooseTool;
 };
 
@@ -15,7 +15,7 @@ type ExtractWithBedrockDependencies = {
  * 画像のみが含まれるPDFには対応しておらず、その場合はundefinedを返します。
  */
 export const extractWithBedrock =
-  (deps: ExtractWithBedrockDependencies) =>
+  (deps: ExtractWithBedrockDeps) =>
   async (pdfBuffer: Uint8Array): Promise<SpotRecallListContent | undefined> => {
     const userMessage: ChatMessageContentBlock[] = [
       {

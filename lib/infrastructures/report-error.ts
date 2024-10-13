@@ -3,14 +3,14 @@ import type { ServiceFactoryWithDefault } from "../types.ts";
 
 export type ReportError = (error: unknown) => Promise<void>;
 
-export type ReportErrorDependencies = {
+export type ReportErrorDeps = {
   snsClient?: SNSClient;
   errorTopicArn?: string;
 };
 
 export type ReportErrorFactory = ServiceFactoryWithDefault<
   ReportError,
-  ReportErrorDependencies
+  ReportErrorDeps
 >;
 
 export const reportError: ReportErrorFactory = (deps) => async (error) => {

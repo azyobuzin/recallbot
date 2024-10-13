@@ -17,14 +17,14 @@ export type GetStoredUrls = (urls: string[]) => Promise<string[]>;
 
 export type SavePostedUrl = (record: PostedUrl) => Promise<void>;
 
-export type PostedUrlsRepositoryDependencies = {
+export type PostedUrlsRepositoryDeps = {
   dynamoDbClient: DynamoDBClient;
   postedUrlsTableName: string;
 };
 
 export type PostedUrlsRepositoryFactory = ServiceFactoryWithDefault<
   PostedUrlsRepository,
-  PostedUrlsRepositoryDependencies
+  PostedUrlsRepositoryDeps
 >;
 
 export type PostedUrl = {

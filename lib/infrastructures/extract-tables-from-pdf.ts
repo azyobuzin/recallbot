@@ -10,13 +10,13 @@ export type ExtractTablesFromPdf = (
   pdfBuffer: Uint8Array,
 ) => Promise<ExtractTablesFromPdfOutput>;
 
-export type ExtractTablesFromPdfDependencies = {
+export type ExtractTablesFromPdfDeps = {
   documentAnalysisClient: DocumentAnalysisClient;
 };
 
 export type ExtractTablesFromPdfFactory = ServiceFactoryWithDefault<
   ExtractTablesFromPdf,
-  ExtractTablesFromPdfDependencies
+  ExtractTablesFromPdfDeps
 >;
 
 export type ExtractTablesFromPdfOutput = {

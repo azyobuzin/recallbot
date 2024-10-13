@@ -39,12 +39,12 @@ const extractFromHtml = (
   };
 };
 
-type DownloadPdfsDependencies = {
+type DownloadPdfsDeps = {
   downloadResource: DownloadResource;
 };
 
 const downloadPdfs =
-  (deps: DownloadPdfsDependencies) =>
+  (deps: DownloadPdfsDeps) =>
   async (
     input: SpotRecallPressReleaseWithPdfUrl,
   ): Promise<SpotRecallPressReleaseWithPdf> => {
@@ -64,13 +64,13 @@ const downloadPdfs =
     };
   };
 
-type ExtractFromPdfDependencies = {
+type ExtractFromPdfDeps = {
   askAIToChooseTool: AskAIToChooseTool;
   extractTablesFromPdf: ExtractTablesFromPdf;
 };
 
 const extractFromPdf =
-  (deps: ExtractFromPdfDependencies) =>
+  (deps: ExtractFromPdfDeps) =>
   async (
     input: SpotRecallPressReleaseWithPdf,
   ): Promise<SpotRecallListContent> => {
@@ -84,13 +84,13 @@ const extractFromPdf =
     throw new Error("Failed to extract recall details.");
   };
 
-type AnalyzeSpotRecallPressReleaseDependencies = DownloadPdfsDependencies &
-  ExtractFromPdfDependencies & {
+type AnalyzeSpotRecallPressReleaseDeps = DownloadPdfsDeps &
+  ExtractFromPdfDeps & {
     convertPdfToImages: ConvertPdfToImages;
   };
 
 const analyzeSpotRecallPressRelease =
-  (deps: AnalyzeSpotRecallPressReleaseDependencies) =>
+  (deps: AnalyzeSpotRecallPressReleaseDeps) =>
   async (
     input: SpotRecallPressReleasePage,
   ): Promise<CompleteSpotRecallPressRelease> => {
@@ -135,11 +135,11 @@ ${input.pressReleaseUrl}`;
   return { pressReleaseUrl: input.pressReleaseUrl, status, media };
 };
 
-type CreatePostForSpotRecallPressReleaseDependencies =
-  AnalyzeSpotRecallPressReleaseDependencies;
+type CreatePostForSpotRecallPressReleaseDeps =
+  AnalyzeSpotRecallPressReleaseDeps;
 
 export const createPostForSpotRecallPressRelease =
-  (deps: CreatePostForSpotRecallPressReleaseDependencies) =>
+  (deps: CreatePostForSpotRecallPressReleaseDeps) =>
   async (input: SpotRecallPressReleasePage) => {
     const analyzed = await analyzeSpotRecallPressRelease(deps)(input);
     return toContentToPost(analyzed);

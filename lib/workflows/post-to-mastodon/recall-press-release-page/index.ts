@@ -11,13 +11,13 @@ import type {
 } from "../types.ts";
 import { extractPdfLinks, extractPreamble } from "./utils.ts";
 
-type DownloadPressReleasePageDependencies = {
+type DownloadPressReleasePageDeps = {
   downloadResource: DownloadResource;
 };
 
 /** フィードに添付されたURLのページをダウンロードします。 */
 const downloadRecallPressReleasePage =
-  (deps: DownloadPressReleasePageDependencies) =>
+  (deps: DownloadPressReleasePageDeps) =>
   async (
     feedItem: RecallPressReleaseFeedItem,
   ): Promise<RecallPressReleasePageHtml> => {
@@ -47,13 +47,13 @@ const parseRecallPressReleasePage = (
   };
 };
 
-type RetrieveRecallPressReleasePageDependencies = {
+type RetrieveRecallPressReleasePageDeps = {
   downloadResource: DownloadResource;
 };
 
 /** プレスリリースのページを解析し、本文と添付されたPDFへのリンクを取得します。 */
 export const analyzeRecallPressReleasePage =
-  (deps: RetrieveRecallPressReleasePageDependencies) =>
+  (deps: RetrieveRecallPressReleasePageDeps) =>
   async (feedItem: RecallPressReleaseFeedItem) => {
     const pageWithHtml = await downloadRecallPressReleasePage(deps)(feedItem);
     return parseRecallPressReleasePage(pageWithHtml);

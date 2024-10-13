@@ -16,14 +16,14 @@ export type PostToMastodon = (
   mediaIds: string[],
 ) => Promise<void>;
 
-export type TootServiceDependencies = {
+export type TootServiceDeps = {
   mastodonBaseUrl: string | URL;
   mastodonAccessToken: string;
 };
 
 export type TootServiceFactory = ServiceFactoryWithDefault<
   TootService,
-  TootServiceDependencies
+  TootServiceDeps
 >;
 
 export type MediaToUpload = {

@@ -14,13 +14,13 @@ export type AskAIToChooseTool = (
   tools: ToolSpec[],
 ) => Promise<AskAIToChooseToolOutput>;
 
-export type AskAIToChooseToolDependencies = {
+export type AskAIToChooseToolDeps = {
   bedrockRuntimeClient: BedrockRuntimeClient;
 };
 
 export type AskAIToChooseToolFactory = ServiceFactoryWithDefault<
   AskAIToChooseTool,
-  AskAIToChooseToolDependencies
+  AskAIToChooseToolDeps
 >;
 
 export type ChatMessageContentBlock =

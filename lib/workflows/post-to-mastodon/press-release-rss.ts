@@ -7,13 +7,12 @@ import {
 } from "../../infrastructures/index.ts";
 import type { RecallPressReleaseFeedItem, RssFeedItem } from "./types.ts";
 
-type DownloadPressReleaseRssDependencies = {
+type DownloadPressReleaseRssDeps = {
   downloadResource: DownloadResource;
 };
 
-const downloadPressReleaseRss =
-  (deps: DownloadPressReleaseRssDependencies) => () =>
-    deps.downloadResource(rssUrl, AcceptHeaderValue.rss);
+const downloadPressReleaseRss = (deps: DownloadPressReleaseRssDeps) => () =>
+  deps.downloadResource(rssUrl, AcceptHeaderValue.rss);
 
 const parseRss = (rss: string): RssFeedItem[] => {
   const domEnv = new jsdom.JSDOM();
@@ -49,12 +48,11 @@ const pickRecallPressReleaseFeedItems = (
     })
     .filter((x) => x != null);
 
-type RetrieveRecallPressReleaseFeedItemsDependencies =
-  DownloadPressReleaseRssDependencies;
+type RetrieveRecallPressReleaseFeedItemsDeps = DownloadPressReleaseRssDeps;
 
 /** プレスリリースのRSSをダウンロードし、リコール届出に関するフィードのみを抽出します。 */
 export const retrieveRecallPressReleaseFeedItems =
-  (deps: RetrieveRecallPressReleaseFeedItemsDependencies) => async () => {
+  (deps: RetrieveRecallPressReleaseFeedItemsDeps) => async () => {
     const rss = await downloadPressReleaseRss(deps)();
     const decodedRss = decodeShiftJIS(rss);
     const feedItems = parseRss(decodedRss);

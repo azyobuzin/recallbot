@@ -12,22 +12,22 @@ import {
 import { createPostsFromPressReleases } from "./create-posts-from-press-releases.ts";
 import { ContentToPost } from "./types.ts";
 
-type UploadMediaInParallelDependencies = {
+type UploadMediaInParallelDeps = {
   uploadMediaToMastodon: UploadMediaToMastodon;
 };
 
 const uploadMediaInParallel =
-  (deps: UploadMediaInParallelDependencies) => (media: MediaToUpload[]) =>
+  (deps: UploadMediaInParallelDeps) => (media: MediaToUpload[]) =>
     Promise.all(media.map((x) => deps.uploadMediaToMastodon(x)));
 
-type PostAndSaveDependencies = {
+type PostAndSaveDeps = {
   postToMastodon: PostToMastodon;
   uploadMediaToMastodon: UploadMediaToMastodon;
   savePostedUrl: SavePostedUrl;
 };
 
 const postAndSave =
-  (deps: PostAndSaveDependencies) => async (contentToPost: ContentToPost) => {
+  (deps: PostAndSaveDeps) => async (contentToPost: ContentToPost) => {
     const uploadedMedia = await uploadMediaInParallel(deps)(
       contentToPost.media,
     );
@@ -42,7 +42,7 @@ const postAndSave =
     });
   };
 
-type PostToMastodonDependencies = {
+type PostToMastodonDeps = {
   askAIToChooseTool: AskAIToChooseTool;
   convertPdfToImages: ConvertPdfToImages;
   downloadResource: DownloadResource;
@@ -53,12 +53,11 @@ type PostToMastodonDependencies = {
   uploadMediaToMastodon: UploadMediaToMastodon;
 };
 
-export const postToMastodon =
-  (deps: PostToMastodonDependencies) => async () => {
-    const posts = await createPostsFromPressReleases(deps)();
-    for (const result of posts) {
-      await result
-        .mapCatching(postAndSave(deps))
-        .getOrElse((error) => deps.reportError(error));
-    }
-  };
+export const postToMastodon = (deps: PostToMastodonDeps) => async () => {
+  const posts = await createPostsFromPressReleases(deps)();
+  for (const result of posts) {
+    await result
+      .mapCatching(postAndSave(deps))
+      .getOrElse((error) => deps.reportError(error));
+  }
+};

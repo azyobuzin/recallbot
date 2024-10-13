@@ -10,7 +10,7 @@ import { analyzeRecallPressReleasePage } from "./recall-press-release-page/index
 import { createPostForSpotRecallPressRelease } from "./spot-recall-press-release/index.ts";
 import { ContentToPost, SpotRecallPressReleasePage } from "./types.ts";
 
-type CreatePostsFromPressReleasesDependencies = {
+type CreatePostsFromPressReleasesDeps = {
   askAIToChooseTool: AskAIToChooseTool;
   convertPdfToImages: ConvertPdfToImages;
   downloadResource: DownloadResource;
@@ -18,7 +18,7 @@ type CreatePostsFromPressReleasesDependencies = {
 };
 
 export const createPostsFromPressReleases =
-  (deps: CreatePostsFromPressReleasesDependencies) =>
+  (deps: CreatePostsFromPressReleasesDeps) =>
   (): Promise<Result<ContentToPost, unknown>[]> =>
     Array.fromAsync(
       (async function* () {

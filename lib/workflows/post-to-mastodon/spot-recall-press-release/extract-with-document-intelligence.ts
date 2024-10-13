@@ -6,7 +6,7 @@ import type {
 import type { SpotRecallListContent } from "../types.ts";
 import { parseAssistantResult } from "./utils.ts";
 
-type ExtractWithDocumentIntelligenceDependencies = {
+type ExtractWithDocumentIntelligenceDeps = {
   askAIToChooseTool: AskAIToChooseTool;
   extractTablesFromPdf: ExtractTablesFromPdf;
 };
@@ -16,7 +16,7 @@ type ExtractWithDocumentIntelligenceDependencies = {
  * 画像のみが含まれるPDFにも対応しています。
  */
 export const extractWithDocumentIntelligence =
-  (deps: ExtractWithDocumentIntelligenceDependencies) =>
+  (deps: ExtractWithDocumentIntelligenceDeps) =>
   async (pdfBuffer: Uint8Array): Promise<SpotRecallListContent | undefined> => {
     const { csvs } = await deps.extractTablesFromPdf(pdfBuffer);
 

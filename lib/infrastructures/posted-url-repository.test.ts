@@ -1,7 +1,7 @@
 import { afterEach, describe, mock, test, type TestContext } from "node:test";
 import {
   postedUrlRepository,
-  type PostedUrlsRepositoryDependencies,
+  type PostedUrlsRepositoryDeps,
 } from "./posted-urls-repository.ts";
 import type {
   BatchGetItemCommand,
@@ -14,7 +14,7 @@ const mockDynamoDbClient = {
 
 const tableName = "table_name";
 
-const deps: PostedUrlsRepositoryDependencies = {
+const deps: PostedUrlsRepositoryDeps = {
   // @ts-expect-error
   dynamoDbClient: mockDynamoDbClient,
   postedUrlsTableName: tableName,
