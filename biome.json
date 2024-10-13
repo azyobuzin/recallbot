@@ -15,7 +15,16 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "all": true,
+        "noNodejsModules": "off"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "useNodeAssertStrict": "error",
+        "useThrowNewError": "error"
+      }
     }
   },
   "javascript": {

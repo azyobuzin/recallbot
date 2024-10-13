@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "module": "Node16",
-    "target": "ESNext",
     "allowImportingTsExtensions": true,
     "checkJs": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "module": "Node16",
     "noFallthroughCasesInSwitch": true,
-    "noEmit": true
+    "noEmit": true,
+    "strict": true,
+    "target": "ESNext",
+    "verbatimModuleSyntax": true
   },
   "exclude": ["node_modules", "index.mjs"]
 }
