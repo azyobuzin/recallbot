@@ -50,6 +50,19 @@ const postAndSave =
     });
   };
 
+type HandlerErrorDeps = {
+  reportError: ReportError;
+};
+
+const handleError = (deps: HandlerErrorDeps) => async (error: unknown) => {
+  try {
+    console.error(error);
+    await deps.reportError(error);
+  } catch (errorInReporting) {
+    console.error(errorInReporting);
+  }
+};
+
 type PostRecallsToMastodon = () => Promise<void>;
 
 type PostRecallsToMastodonDeps = {
@@ -72,9 +85,7 @@ export const postRecallsToMastodon: PostRecallsToMastodonFactory =
   (deps: PostRecallsToMastodonDeps) => async () => {
     const posts = await createPostsFromPressReleases(deps)();
     for (const result of posts) {
-      await result
-        .mapCatching(postAndSave(deps))
-        .getOrElse((error) => deps.reportError(error));
+      await result.mapCatching(postAndSave(deps)).getOrElse(handleError(deps));
     }
   };
 
