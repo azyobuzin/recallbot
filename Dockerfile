@@ -1,9 +1,10 @@
 FROM public.ecr.aws/lambda/nodejs:20 AS builder
+RUN dnf -y install jq && dnf clean all
 WORKDIR ${LAMBDA_TASK_ROOT}
 COPY . .
 # Compile TypeScript into one JavaScript file
-RUN ESBUILD_VERSION=$(awk 'match($0, /"esbuild": "([^"]+)"/, arr) { print arr[1] }' package.json) && \
-    npx -y esbuild@${ESBUILD_VERSION} index.ts --bundle --outfile=index.mjs --platform=node --format=esm --packages=external
+RUN ESBUILD_VERSION=$(jq -r '.devDependencies.esbuild' package.json) && \
+    npx -y --package=esbuild@${ESBUILD_VERSION} -- $(jq -r '.scripts.build' package.json)
 
 FROM public.ecr.aws/lambda/nodejs:20
 WORKDIR ${LAMBDA_TASK_ROOT}

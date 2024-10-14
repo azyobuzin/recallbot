@@ -1,1 +1,1 @@
-export * from "./post-recalls-to-mastodon/index.ts";
+export { postRecallsToMastodon } from "./post-recalls-to-mastodon/index.ts";

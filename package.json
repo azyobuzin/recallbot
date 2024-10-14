@@ -11,9 +11,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "esbuild index.ts --bundle --outfile=index.mjs --platform=node --format=esm --packages=external",
+    "build": "esbuild index.ts --bundle --outfile=index.mjs --platform=node --format=esm --packages=external --sourcemap=inline",
     "fix": "biome check --write",
-    "test": "tsc -noEmit && tsx --test $(find lib -name '*.test.ts')"
+    "test": "biome ci && tsc -noEmit && tsx --test $(find lib -name '*.test.ts')"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "3.670.0",

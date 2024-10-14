@@ -3,6 +3,7 @@ import {
   type ConvertPdfToImages,
   type DownloadResource,
   type ExtractTablesFromPdf,
+  type GetStoredUrls,
   type MediaToUpload,
   type PostToMastodon,
   type ReportError,
@@ -70,6 +71,7 @@ type PostRecallsToMastodonDeps = {
   convertPdfToImages: ConvertPdfToImages;
   downloadResource: DownloadResource;
   extractTablesFromPdf: ExtractTablesFromPdf;
+  getStoredUrls: GetStoredUrls;
   postToMastodon: PostToMastodon;
   reportError: ReportError;
   savePostedUrl: SavePostedUrl;
@@ -81,6 +83,7 @@ type PostRecallsToMastodonFactory = ServiceFactoryWithDefault<
   PostRecallsToMastodonDeps
 >;
 
+/** 未投稿のリコール情報を取得して、Mastodonに投稿します。 */
 export const postRecallsToMastodon: PostRecallsToMastodonFactory =
   (deps: PostRecallsToMastodonDeps) => async () => {
     const posts = await createPostsFromPressReleases(deps)();
@@ -97,6 +100,7 @@ postRecallsToMastodon.withDefaultDeps = () => {
     convertPdfToImages: convertPdfToImages,
     downloadResource: downloadResource,
     extractTablesFromPdf: extractTablesFromPdf.withDefaultDeps(),
+    getStoredUrls: defaultPostedUrlRepository.getStoredUrls,
     postToMastodon: defaultTootService.postToMastodon,
     reportError: reportError.withDefaultDeps(),
     savePostedUrl: defaultPostedUrlRepository.savePostedUrl,
