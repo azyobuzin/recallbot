@@ -16,21 +16,21 @@
     "test": "biome ci && tsc -noEmit && tsx --test $(find lib -name '*.test.ts')"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "3.670.0",
-    "@aws-sdk/client-dynamodb": "3.670.0",
-    "@aws-sdk/client-sns": "3.670.0",
+    "@aws-sdk/client-bedrock-runtime": "3.687.0",
+    "@aws-sdk/client-dynamodb": "3.687.0",
+    "@aws-sdk/client-sns": "3.687.0",
     "@azure/ai-form-recognizer": "5.0.0",
     "jsdom": "25.0.1",
-    "pdf-to-img": "4.1.1",
-    "typescript-result": "2.1.1",
+    "pdf-to-img": "4.2.0",
+    "typescript-result": "3.1.0",
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.3",
+    "@biomejs/biome": "1.9.4",
     "@types/aws-lambda": "8.10.145",
     "@types/jsdom": "21.1.7",
     "esbuild": "0.24.0",
-    "tsx": "4.19.1",
+    "tsx": "4.19.2",
     "typescript": "5.6.3"
   }
 }
