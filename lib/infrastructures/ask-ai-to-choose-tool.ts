@@ -76,6 +76,7 @@ export const askAIToChooseTool: AskAIToChooseToolFactory =
       toolConfig,
     });
 
+    console.log("Calling Bedrock");
     const output = await deps.bedrockRuntimeClient.send(command);
     console.log(JSON.stringify(output));
 
@@ -84,7 +85,7 @@ export const askAIToChooseTool: AskAIToChooseToolFactory =
 
 askAIToChooseTool.withDefaultDeps = () =>
   askAIToChooseTool({
-    bedrockRuntimeClient: new BedrockRuntimeClient(),
+    bedrockRuntimeClient: new BedrockRuntimeClient({ region: "us-east-1" }),
   });
 
 const commandBase = {
