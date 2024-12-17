@@ -1,5 +1,8 @@
 import { type TestContext, test } from "node:test";
-import { pressreleaseRdf20240908Binary } from "../../../test-utils/fixtures.ts";
+import {
+  pressreleaseRdf20240908Binary,
+  pressreleaseRdf20241217Binary,
+} from "../../../test-utils/fixtures.ts";
 import { retrieveRecallPressReleaseFeedItems } from "./press-release-rss.ts";
 
 test("2024-09-08時点のRSSをparseして「リコールの届出について」のみを古い順に出力すること", async (t: TestContext) => {
@@ -24,6 +27,13 @@ test("2024-09-08時点のRSSをparseして「リコールの届出について�
       recallPressReleaseType: "spot",
     },
   ]);
+});
+
+test("不正なXMLのときErrorをthrowすること", async (t: TestContext) => {
+  const fn = retrieveRecallPressReleaseFeedItems({
+    downloadResource: pressreleaseRdf20241217Binary,
+  });
+  await t.assert.rejects(fn, { message: "XMLにエラーがあります。" });
 });
 
 // TODO: monthlyのケースのテスト

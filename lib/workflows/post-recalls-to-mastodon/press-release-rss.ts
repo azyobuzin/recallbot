@@ -17,6 +17,9 @@ const downloadPressReleaseRss = (deps: DownloadPressReleaseRssDeps) => () =>
 const parseRss = (rss: string): RssFeedItem[] => {
   const domEnv = new jsdom.JSDOM();
   const dom = new domEnv.window.DOMParser().parseFromString(rss, "text/xml");
+  const errorNode = dom.querySelector("parsererror");
+  if (errorNode) throw new Error("XMLにエラーがあります。");
+
   const items = [...dom.querySelectorAll("item")];
   return items.map((item) => {
     const title = item.querySelector("title")?.textContent;

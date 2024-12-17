@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<rdf:RDF xmlns="http://purl.org/rss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xml:lang="ja">
+        <channel rdf:about="http://www.mlit.go.jp/pressrelease.rdf">
+        <title>国土交通省ホームページプレスリリース</title>
+        <link>http://www.mlit.go.jp/</link>
+        <description>国土交通省ホームページプレスリリース</description>
+                <dc:language>ja-jp</dc:language>
+                <items>
+                        <rdf:Seq>
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/joho04_hh_001268.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/unyu00_hh_000304.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo03_hh_000001_00091.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/road01_hh_001866.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/road01_hh_001864.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tetsudo07_hh_000288.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha04_hh_000314.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005342.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kaiji10_hh_000152.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/port06_hh_000303.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/sogo07_hh_000740.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kanbo05_hh_000279.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kanbo11_hh_000147.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/mizukokudo13_hh_000605.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/house05_hh_001031.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005340.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/port07_hh_000238.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/sogo23_hh_000173.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/sogo17_hh_000194.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/port04_hh_000493.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/unyu00_hh_000306.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00272.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/toshi07_hh_000273.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/mizukokudo05_hh_000234.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/water01_hh_000160.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/house02_hh_000205.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/house05_hh_001030.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005339.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kaiji04_hh_000326.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/sogo03_hh_000342.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/sogo05_hh_000372.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/unyu00_hh_000303.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo05_hh_000001_00189.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/house04_hh_001251.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005338.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005337.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005336.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005335.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005331.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/jidosha08_hh_005330.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kaiji10_hh_000153.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kouku02_hh_000245.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/kanbo08_hh_001155.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00270.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/toshi05_hh_000463.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/mizukokudo05_hh_000233.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/mizukokudo06_hh_000311.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/house05_hh_001028.html" />
+                                <rdf:li rdf:resource="http://www.mlit.go.jp/report/press/tetsudo09_hh_000223.html" />
+                        </rdf:Seq>
+                </items>
+        </channel>
+        <item rdf:about="http://www.mlit.go.jp/report/press/joho04_hh_001268.html">
+                <title>建設総合統計（令和６年１０月分）</title>
+                <link>http://www.mlit.go.jp/report/press/joho04_hh_001268.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/unyu00_hh_000304.html">
+                <title>東日本旅客鉄道株式会社からの鉄道の旅客運賃の上限変更認可申請事案について審議を開始しました</title>
+                <link>http://www.mlit.go.jp/report/press/unyu00_hh_000304.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo03_hh_000001_00091.html">
+                <title>中堅・中小建設企業向け海外進出セミナー 福岡にて開催！～海外展開を初めて検討される方から既に進出済みの方まで役立つ情報を提供～</title>
+                <link>http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo03_hh_000001_00091.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/road01_hh_001866.html">
+                <title>「第７回 自動物流道路に関する検討会」の開催について～「危機」を「転機」とする自動物流道路～</title>
+                <link>http://www.mlit.go.jp/report/press/road01_hh_001866.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/road01_hh_001864.html">
+                <title>フィリピン国において「道路建設・Ｏ&Ｍ（運営・維持管理）に関する ビジネスワークショップ（第３回）」を開催しました～両国の道路分野における官民の技術協力を更に推進～</title>
+                <link>http://www.mlit.go.jp/report/press/road01_hh_001864.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tetsudo07_hh_000288.html">
+                <title>第３回　鉄道車両の輪軸の安全性に関する検証会議の開催について</title>
+                <link>http://www.mlit.go.jp/report/press/tetsudo07_hh_000288.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha04_hh_000314.html">
+                <title>事故の少ない「Ｇマーク」トラックが拡がっています！～令和６年度９，０５６事業所にＧマークを認定～</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha04_hh_000314.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005342.html">
+                <title>第８回「自動車の型式指定に係る不正行為の防止に向けた検討会」 を開催します</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005342.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kaiji10_hh_000152.html">
+                <title>求む！海技のエキスパート～海技試験官を募集　あなたの海技士スキルが必要です～</title>
+                <link>http://www.mlit.go.jp/report/press/kaiji10_hh_000152.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/port06_hh_000303.html">
+                <title>風車の大型化等に対応した港湾施設の規模等の検討を開始～令和６年度第1 回洋上風力発電の導入促進に向けた港湾のあり方に関する検討会を開催～</title>
+                <link>http://www.mlit.go.jp/report/press/port06_hh_000303.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/sogo07_hh_000740.html">
+                <title>海外インフラプロジェクト技術者認定・表彰制度の本年度の運用について議論を行います！～「2024 年度 第２回海外インフラプロジェクト技術者評価委員会」の開催～</title>
+                <link>http://www.mlit.go.jp/report/press/sogo07_hh_000740.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kanbo05_hh_000279.html">
+                <title>令和６年度国土交通省関係補正予算の配分について</title>
+                <link>http://www.mlit.go.jp/report/press/kanbo05_hh_000279.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kanbo11_hh_000147.html">
+                <title>令和６年度補正予算に係る個別公共事業評価について</title>
+                <link>http://www.mlit.go.jp/report/press/kanbo11_hh_000147.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-17T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/mizukokudo13_hh_000605.html">
+                <title>今後の下水道における水環境管理のあり方等について議論します～「第４回 戦略的な水環境管理のあり方検討会」の開催～</title>
+                <link>http://www.mlit.go.jp/report/press/mizukokudo13_hh_000605.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-16T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/house05_hh_001031.html">
+                <title>建築分野におけるBIMの推進等を議論します～第20回建築BIM環境整備部会を開催～</title>
+                <link>http://www.mlit.go.jp/report/press/house05_hh_001031.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-16T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005340.html">
+                <title>リコールの届出について（日野　日野 プロフィア）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005340.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-16T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/port07_hh_000238.html">
+                <title>第１回「港湾におけるBCP策定ガイドライン検討委員会」を開催します～能登半島地震の教訓等を踏まえた海上支援ネットワークの形成に向けて～</title>
+                <link>http://www.mlit.go.jp/report/press/port07_hh_000238.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-16T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/sogo23_hh_000173.html">
+                <title>第２回「歩行空間DX研究会シンポジウム」を開催します！～「持続可能」な移動支援サービスの普及・展開に向けて～</title>
+                <link>http://www.mlit.go.jp/report/press/sogo23_hh_000173.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-16T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/sogo17_hh_000194.html">
+                <title>浮体式洋上風力発電の海上施工シナリオの策定に向けた議論を開始します！～「浮体式洋上風力発電の海上施工等に関する官民WG」を開催～</title>
+                <link>http://www.mlit.go.jp/report/press/sogo17_hh_000194.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/port04_hh_000493.html">
+                <title>みなと緑地PPPで賑わい空間を創出～スタートアップの目線で考える意見交換会を開催～</title>
+                <link>http://www.mlit.go.jp/report/press/port04_hh_000493.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/unyu00_hh_000306.html">
+                <title>京阪電気鉄道株式会社からの鉄道及び軌道の旅客運賃の上限変更認可申請事案に関する公聴会の開催概要について</title>
+                <link>http://www.mlit.go.jp/report/press/unyu00_hh_000306.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00272.html">
+                <title>建設業の価格転嫁、ICT活用、技術者専任合理化について、新制度の導入に際して詳細を定めました～「建設業法施行規則等の一部を改正する省令」等を施行～</title>
+                <link>http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00272.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html">
+                <title>「品確法基本方針」及び「入契法適正化指針」の変更について閣議決定～建設業が「地域の守り手」等の役割を果たし続けられるよう、公共工事の発注者等が講ずべき具体的な措置を新たに規定～</title>
+                <link>http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/toshi07_hh_000273.html">
+                <title>広島平和記念都市建設事業進捗状況報告書等の国会報告について</title>
+                <link>http://www.mlit.go.jp/report/press/toshi07_hh_000273.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/mizukokudo05_hh_000234.html">
+                <title>我が国の水防技術を世界に広めます！！～日・米・英・蘭４ヶ国等の連携による初めての「国際水防ハンドブック」の発刊～</title>
+                <link>http://www.mlit.go.jp/report/press/mizukokudo05_hh_000234.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/water01_hh_000160.html">
+                <title>第４７回「全日本中学生水の作文コンクール」の実施～中学生のみなさん！大切な「水」への思いをつづってみませんか？～</title>
+                <link>http://www.mlit.go.jp/report/press/water01_hh_000160.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/house02_hh_000205.html">
+                <title>今後のマンションの管理適正化及び再生円滑化のあり方について検討します～社会資本整備審議会 住宅宅地分科会 マンション政策小委員会（第３回）の開催～</title>
+                <link>http://www.mlit.go.jp/report/press/house02_hh_000205.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/house05_hh_001030.html">
+                <title>令和６年度第２回中央建築士審査会の開催～令和６年一級建築士試験「設計製図の試験」の 合格基準等について審議します～</title>
+                <link>http://www.mlit.go.jp/report/press/house05_hh_001030.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005339.html">
+                <title>リコールの届出について（ホンダ　N-VAN）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005339.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kaiji04_hh_000326.html">
+                <title>中間とりまとめ案について議論します～第7回「海技人材の確保のあり方に関する検討会」を開催～</title>
+                <link>http://www.mlit.go.jp/report/press/kaiji04_hh_000326.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-13T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/sogo03_hh_000342.html">
+                <title>『地域インフラ群再生戦略マネジメント（群マネ）』 のモデル地域における検討状況について議論します～ 「第５回地域インフラ群再生戦略マネジメント計画策定手法検討会」及び「第４回地域インフラ群再生戦略マネジメント実施手法検討会」を同時開催 ～</title>
+                <link>http://www.mlit.go.jp/report/press/sogo03_hh_000342.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/sogo05_hh_000372.html">
+                <title>「海外交通・都市開発事業支援機構（JOIN）の役割、在り方、経営改善策等に関する有識者委員会」の最終報告をとりまとめ～第７回会合の開催結果～</title>
+                <link>http://www.mlit.go.jp/report/press/sogo05_hh_000372.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/unyu00_hh_000303.html">
+                <title>京阪電気鉄道株式会社からの鉄道及び軌道の旅客運賃の上限変更認可申請事案について審議を開始します</title>
+                <link>http://www.mlit.go.jp/report/press/unyu00_hh_000303.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo05_hh_000001_00189.html">
+                <title>不動産特定共同事業を始めよう！～広島市で専門家との交流会＆相談会を開催します～</title>
+                <link>http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo05_hh_000001_00189.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/house04_hh_001251.html">
+                <title>登録住宅性能評価機関の処分について</title>
+                <link>http://www.mlit.go.jp/report/press/house04_hh_001251.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005338.html">
+                <title>リコールの届出について（スズキ　フロンクス）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005338.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005337.html">
+                <title>リコールの届出について（スズキ　バーグマン）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005337.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005336.html">
+                <title>少数台数のリコール届出の公表について（令和６年１１月分）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005336.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005335.html">
+                <title>リコールの届出について（三菱　ふそう キャンター　他）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005335.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005331.html">
+                <title>リコールの届出について（マツダ　MAZDA ROADSTER）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005331.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/jidosha08_hh_005330.html">
+                <title>リコールの届出について（ニッサン　パラメディック）</title>
+                <link>http://www.mlit.go.jp/report/press/jidosha08_hh_005330.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kaiji10_hh_000153.html">
+                <title>第４回「（独）海技教育機構の中期的なあり方に関する検討会」を開催します～骨子案についてとりまとめます！～</title>
+                <link>http://www.mlit.go.jp/report/press/kaiji10_hh_000153.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kouku02_hh_000245.html">
+                <title>「第３６回航空安全情報分析委員会」の開催～令和６年度上半期に収集した「航空運送分野」の安全情報※の審議を行います～</title>
+                <link>http://www.mlit.go.jp/report/press/kouku02_hh_000245.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/kanbo08_hh_001155.html">
+                <title>異業種連携を促進するためのピッチイベントを開催します～河川ポンプ設備を対象とした故障予兆検知・寿命予測AIの開発促進～</title>
+                <link>http://www.mlit.go.jp/report/press/kanbo08_hh_001155.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-12T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00270.html">
+                <title>令和7年度技術検定のスケジュール等を公表しました～実施計画を国土交通省HPに掲載～</title>
+                <link>http://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00270.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-11T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/toshi05_hh_000463.html">
+                <title>官民連携まちづくりを推進するため、専門家による伴走を支援します！～官民連携まちなか再生推進事業における普及啓発事業（地域伴走型）の募集（令和６年度補正）を開始～</title>
+                <link>http://www.mlit.go.jp/report/press/toshi05_hh_000463.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-11T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/mizukokudo05_hh_000233.html">
+                <title>“ダムを見に行こう 冬号2024”～冬だけの景色を求めて～</title>
+                <link>http://www.mlit.go.jp/report/press/mizukokudo05_hh_000233.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-11T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/mizukokudo06_hh_000311.html">
+                <title>令和６年11 月８日から11 日までの大雨により被災した道路・河川等の迅速な復旧を支援～設計図書の簡素化や書面査定の上限額引上げにより、災害査定を効率化～</title>
+                <link>http://www.mlit.go.jp/report/press/mizukokudo06_hh_000311.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-11T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/house05_hh_001028.html">
+                <title>改正建築物省エネ法・建築基準法の全面施行（令和７年４月）に向けた最新の取組状況の共有・意見交換を行います！～第４回「改正建築物省エネ法・建築基準法の円滑施行に関する連絡会議」の開催～</title>
+                <link>http://www.mlit.go.jp/report/press/house05_hh_001028.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-11T05:00:00+09:00</dc:date>
+        </item>
+        <item rdf:about="http://www.mlit.go.jp/report/press/tetsudo09_hh_000223.html">
+                <title>「第9回JR肥薩線検討会議」の開催について</title>
+                <link>http://www.mlit.go.jp/report/press/tetsudo09_hh_000223.html</link>
+                <dc:creator>国土交通省</dc:creator>
+                <dc:date>2024-12-11T05:00:00+09:00</dc:date>
+        </item>
+</rdf:RDF>
