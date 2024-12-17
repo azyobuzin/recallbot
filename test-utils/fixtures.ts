@@ -1,9 +1,6 @@
 import { readFile } from "node:fs/promises";
 import jsdom from "jsdom";
 
-/**
- * @returns {Promise<Uint8Array>}
- */
 export async function pressreleaseRdf20240908Binary(): Promise<Uint8Array> {
   return await readFile(
     new URL("./fixtures/pressrelease_20240908.rdf", import.meta.url),
