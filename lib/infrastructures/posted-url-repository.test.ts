@@ -71,6 +71,12 @@ describe("getStoredUrls", () => {
 
     await t.assert.rejects(() => getStoredUrls(["url1", "url2"]));
   });
+
+  test("引数が空のとき、リクエストを送信しないこと", async (t: TestContext) => {
+    const { getStoredUrls } = postedUrlRepository(deps);
+    t.assert.deepStrictEqual(await getStoredUrls([]), []);
+    t.assert.strictEqual(mockDynamoDbClient.send.mock.callCount(), 0);
+  });
 });
 
 describe("savePostedUrl", () => {

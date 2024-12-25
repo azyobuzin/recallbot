@@ -34,6 +34,9 @@ export type PostedUrl = {
 
 export const postedUrlRepository: PostedUrlsRepositoryFactory = (deps) => ({
   async getStoredUrls(urls) {
+    // 入力が空だとエラーになるので、APIを呼び出さない
+    if (urls.length === 0) return [];
+
     const command = new BatchGetItemCommand({
       RequestItems: {
         [deps.postedUrlsTableName]: {
