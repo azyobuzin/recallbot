@@ -16,7 +16,11 @@ import type {
 } from "../types.ts";
 import { extractWithBedrock } from "./extract-with-bedrock.ts";
 import { extractWithDocumentIntelligence } from "./extract-with-document-intelligence.ts";
-import { extractCarNameFromTitle } from "./utils.ts";
+import {
+  convertPdfsToImages,
+  extractCarNameFromTitle,
+  extractIllustrationPdfUrls,
+} from "./utils.ts";
 
 const extractFromHtml = (
   input: SpotRecallPressReleasePage,
@@ -33,8 +37,7 @@ const extractFromHtml = (
     carName: extractCarNameFromTitle(input.title),
     preamble: input.preamble,
     recallListPdfUrl: recallListPdfUrl,
-    illustrationPdfUrl: input.pdfLinks.find((x) => x.title === "改善箇所説明図")
-      ?.href,
+    illustrationPdfUrls: extractIllustrationPdfUrls(input.pdfLinks),
   };
 };
 
@@ -47,19 +50,21 @@ const downloadPdfs =
   async (
     input: SpotRecallPressReleaseWithPdfUrl,
   ): Promise<SpotRecallPressReleaseWithPdf> => {
-    const [recallListPdf, illustrationPdf] = await Promise.all([
+    const [recallListPdf, illustrationPdfs] = await Promise.all([
       deps.downloadResource(input.recallListPdfUrl, AcceptHeaderValue.pdf),
-      input.illustrationPdfUrl
-        ? deps.downloadResource(input.illustrationPdfUrl, AcceptHeaderValue.pdf)
-        : Promise.resolve(undefined),
+      Promise.all(
+        input.illustrationPdfUrls.map((url) =>
+          deps.downloadResource(url, AcceptHeaderValue.pdf),
+        ),
+      ),
     ]);
 
     return {
       pressReleaseUrl: input.pressReleaseUrl,
       carName: input.carName,
       preamble: input.preamble,
-      recallListPdf: recallListPdf,
-      illustrationPdf: illustrationPdf,
+      recallListPdf,
+      illustrationPdfs,
     };
   };
 
@@ -95,9 +100,10 @@ const analyzeSpotRecallPressRelease =
     const downloadedPdfs = await downloadPdfs(deps)(extractedFromHtml);
     const [extractedFromPdf, illustrations] = await Promise.all([
       extractFromPdf(deps)(downloadedPdfs.recallListPdf),
-      downloadedPdfs.illustrationPdf
-        ? deps.convertPdfToImages(downloadedPdfs.illustrationPdf)
-        : Promise.resolve([]),
+      convertPdfsToImages(
+        deps.convertPdfToImages,
+        downloadedPdfs.illustrationPdfs,
+      ),
     ]);
     return {
       pressReleaseUrl: downloadedPdfs.pressReleaseUrl,

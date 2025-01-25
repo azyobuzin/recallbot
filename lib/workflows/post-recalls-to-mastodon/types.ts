@@ -44,7 +44,7 @@ export type SpotRecallPressReleaseWithPdfUrl = {
   /** リコール届出一覧表 */
   recallListPdfUrl: string;
   /** 改善箇所説明図 */
-  illustrationPdfUrl: string | undefined;
+  illustrationPdfUrls: string[];
 };
 
 export type SpotRecallPressReleaseWithPdf = {
@@ -57,7 +57,7 @@ export type SpotRecallPressReleaseWithPdf = {
   /** リコール届出一覧表 */
   recallListPdf: Uint8Array;
   /** 改善箇所説明図 */
-  illustrationPdf: Uint8Array | undefined;
+  illustrationPdfs: Uint8Array[];
 };
 
 export type SpotRecallListContent = {

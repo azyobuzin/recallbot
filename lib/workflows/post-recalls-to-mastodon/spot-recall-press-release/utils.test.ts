@@ -1,5 +1,9 @@
 import { type TestContext, describe, test } from "node:test";
-import { extractCarNameFromTitle, parseAssistantResult } from "./utils.ts";
+import {
+  extractCarNameFromTitle,
+  extractIllustrationPdfUrls,
+  parseAssistantResult,
+} from "./utils.ts";
 
 describe("extractCarNameFromTitle", () => {
   test("正しく抽出できること", (t: TestContext) => {
@@ -15,6 +19,45 @@ describe("extractCarNameFromTitle", () => {
         "スマートインターチェンジの高速道路会社への事業許可および準備段階調査着手について",
       ),
     );
+  });
+});
+
+describe("extractIllustrationPdfUrls", () => {
+  test("1件のとき", (t: TestContext) => {
+    const result = extractIllustrationPdfUrls([
+      {
+        title: "リコール届出一覧表",
+        href: "https://www.mlit.go.jp/report/press/content/001761787.pdf",
+      },
+      {
+        title: "改善箇所説明図",
+        href: "https://www.mlit.go.jp/report/press/content/001761784.pdf",
+      },
+    ]);
+    t.assert.deepStrictEqual(result, [
+      "https://www.mlit.go.jp/report/press/content/001761784.pdf",
+    ]);
+  });
+
+  test("2件のとき", (t: TestContext) => {
+    const result = extractIllustrationPdfUrls([
+      {
+        title: "リコール届出一覧表",
+        href: "https://www.mlit.go.jp/report/press/content/001857652.pdf",
+      },
+      {
+        title: "改善箇所説明図[１]",
+        href: "https://www.mlit.go.jp/report/press/content/001857653.pdf",
+      },
+      {
+        title: "改善箇所説明図[２]",
+        href: "https://www.mlit.go.jp/report/press/content/001857654.pdf",
+      },
+    ]);
+    t.assert.deepStrictEqual(result, [
+      "https://www.mlit.go.jp/report/press/content/001857653.pdf",
+      "https://www.mlit.go.jp/report/press/content/001857654.pdf",
+    ]);
   });
 });
 

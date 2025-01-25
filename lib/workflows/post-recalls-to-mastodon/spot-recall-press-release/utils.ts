@@ -1,6 +1,9 @@
 import { z } from "zod";
-import type { AskAIToChooseToolOutput } from "../../../infrastructures/ask-ai-to-choose-tool.ts";
-import type { SpotRecallListContent } from "../types.ts";
+import type {
+  AskAIToChooseToolOutput,
+  ConvertPdfToImages,
+} from "../../../infrastructures/index.ts";
+import type { PdfLink, SpotRecallListContent } from "../types.ts";
 
 /**
  * プレスリリースのタイトルから車名（メーカー + 通称名）を抽出します。
@@ -10,6 +13,15 @@ export function extractCarNameFromTitle(title: string): string {
   const e = title.lastIndexOf("）");
   if (s < 0 || e < 0) throw new Error("括弧が見つかりませんでした。");
   return title.slice(s + 1, e);
+}
+
+/**
+ * 添付資料から改善箇所説明図のPDFのURLを抽出します。
+ */
+export function extractIllustrationPdfUrls(pdfLinks: PdfLink[]): string[] {
+  return pdfLinks
+    .filter((x) => x.title.startsWith("改善箇所説明図"))
+    .map((x) => x.href);
 }
 
 /**
@@ -34,3 +46,14 @@ const extractedRecallListSchema = z.object({
     z.number().int().positive(),
   ),
 });
+
+export async function convertPdfsToImages(
+  convertPdfToImages: ConvertPdfToImages,
+  pdfs: Uint8Array[],
+): Promise<Uint8Array[]> {
+  const results = [];
+  for (const pdfBuffer of pdfs) {
+    results.push(...(await convertPdfToImages(pdfBuffer)));
+  }
+  return results;
+}
