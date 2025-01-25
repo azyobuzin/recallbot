@@ -16,7 +16,11 @@ import type {
 } from "../types.ts";
 import { extractWithBedrock } from "./extract-with-bedrock.ts";
 import { extractWithDocumentIntelligence } from "./extract-with-document-intelligence.ts";
-import { convertPdfsToImages, extractCarNameFromTitle } from "./utils.ts";
+import {
+  convertPdfsToImages,
+  extractCarNameFromTitle,
+  extractIllustrationPdfUrls,
+} from "./utils.ts";
 
 const extractFromHtml = (
   input: SpotRecallPressReleasePage,
@@ -33,9 +37,7 @@ const extractFromHtml = (
     carName: extractCarNameFromTitle(input.title),
     preamble: input.preamble,
     recallListPdfUrl: recallListPdfUrl,
-    illustrationPdfUrls: input.pdfLinks
-      .filter((x) => x.title.startsWith("改善箇所説明図"))
-      .map((x) => x.href),
+    illustrationPdfUrls: extractIllustrationPdfUrls(input.pdfLinks),
   };
 };
 
