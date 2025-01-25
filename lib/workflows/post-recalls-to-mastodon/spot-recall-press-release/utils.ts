@@ -1,5 +1,8 @@
 import { z } from "zod";
-import type { AskAIToChooseToolOutput } from "../../../infrastructures/ask-ai-to-choose-tool.ts";
+import type {
+  AskAIToChooseToolOutput,
+  ConvertPdfToImages,
+} from "../../../infrastructures/index.ts";
 import type { SpotRecallListContent } from "../types.ts";
 
 /**
@@ -34,3 +37,14 @@ const extractedRecallListSchema = z.object({
     z.number().int().positive(),
   ),
 });
+
+export async function convertPdfsToImages(
+  convertPdfToImages: ConvertPdfToImages,
+  pdfs: Uint8Array[],
+): Promise<Uint8Array[]> {
+  const results = [];
+  for (const pdfBuffer of pdfs) {
+    results.push(...(await convertPdfToImages(pdfBuffer)));
+  }
+  return results;
+}
