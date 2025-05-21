@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowImportingTsExtensions": true,
-    "checkJs": true,
     "forceConsistentCasingInFileNames": true,
     "module": "Node16",
     "noFallthroughCasesInSwitch": true,
