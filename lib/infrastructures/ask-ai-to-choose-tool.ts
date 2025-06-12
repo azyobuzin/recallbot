@@ -85,11 +85,11 @@ export const askAIToChooseTool: AskAIToChooseToolFactory =
 
 askAIToChooseTool.withDefaultDeps = () =>
   askAIToChooseTool({
-    bedrockRuntimeClient: new BedrockRuntimeClient({ region: "us-east-1" }),
+    bedrockRuntimeClient: new BedrockRuntimeClient({ region: "us-east-2" }),
   });
 
 const commandBase = {
-  modelId: "anthropic.claude-3-haiku-20240307-v1:0",
+  modelId: "us.anthropic.claude-3-haiku-20240307-v1:0",
   inferenceConfig: {
     maxTokens: 2048,
     temperature: 0,
