@@ -48,6 +48,22 @@ npm test
 npx tsx debug-run.ts
 ```
 
+## デプロイ
+
+本番環境では Docker イメージ化した Lambda 関数を AWS に配置します。EventBridge
+のスケジュールで 1 日 1 回起動し、国土交通省の RSS フィードを取得して Mastodon
+へ投稿します。投稿済み URL は DynamoDB に保存され、重複投稿を防止します。実行中
+にエラーが発生した場合は SNS トピックへ通知します。
+
+```
+EventBridge -> Lambda -> Mastodon
+                   |
+                   +-> DynamoDB
+                   +-> SNS (errors)
+```
+この図を画像化する場合は `docs/deployment.png` としてリポジトリに配置してください。
+
+
 ## ライセンス
 
 MIT License
