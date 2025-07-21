@@ -19,8 +19,8 @@
 | `RECALLBOT_POSTED_URLS_TABLE_NAME` | いいえ | 投稿済み URL を保存する DynamoDB テーブル名。既定値: `recallbot_dev_posted_urls` |
 | `RECALLBOT_DOCUMENT_INTELLIGENCE_ENDPOINT` | いいえ | Azure Document Intelligence のエンドポイント URL。既定値: `https://japaneast.api.cognitive.microsoft.com/` |
 | `RECALLBOT_DOCUMENT_INTELLIGENCE_API_KEY` | はい | Document Intelligence の API キー |
-| `RECALLBOT_BEDROCK_MODEL_ID` | いいえ | ask-ai-to-choose-tool で使用する Bedrock モデル ID。既定値: `us.anthropic.claude-3-haiku-20240307-v1:0` |
-| `RECALLBOT_BEDROCK_REGION` | いいえ | ask-ai-to-choose-tool で使用する Bedrock リージョン。既定値: `us-east-2` |
+| `RECALLBOT_BEDROCK_MODEL_ID` | いいえ | Bedrock の Inference Profile。既定値: `us.anthropic.claude-3-haiku-20240307-v1:0` |
+| `RECALLBOT_BEDROCK_REGION` | いいえ | Bedrock のリージョン。既定値: `us-east-2` |
 | `RECALLBOT_MASTODON_BASE_URL` | いいえ | 投稿先 Pleroma/Mastodon サーバーの URL。既定値: `https://xxx.azyobuzi.net/` |
 | `RECALLBOT_MASTODON_ACCESS_TOKEN` | はい | 投稿に使用するアクセストークン |
 | `RECALLBOT_ERROR_TOPIC_ARN` | いいえ | エラー通知に利用する SNS トピック ARN |
