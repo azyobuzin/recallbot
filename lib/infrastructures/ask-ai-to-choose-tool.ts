@@ -7,6 +7,7 @@ import {
   type ToolConfiguration,
   type ToolSpecification,
 } from "@aws-sdk/client-bedrock-runtime";
+import { getEnv } from "../env.ts";
 import type { ServiceFactoryWithDefault } from "../types.ts";
 
 export type AskAIToChooseTool = (
@@ -85,11 +86,13 @@ export const askAIToChooseTool: AskAIToChooseToolFactory =
 
 askAIToChooseTool.withDefaultDeps = () =>
   askAIToChooseTool({
-    bedrockRuntimeClient: new BedrockRuntimeClient({ region: "us-east-2" }),
+    bedrockRuntimeClient: new BedrockRuntimeClient({
+      region: getEnv("RECALLBOT_BEDROCK_REGION"),
+    }),
   });
 
 const commandBase = {
-  modelId: "us.anthropic.claude-3-haiku-20240307-v1:0",
+  modelId: getEnv("RECALLBOT_BEDROCK_MODEL_ID"),
   inferenceConfig: {
     maxTokens: 2048,
     temperature: 0,
