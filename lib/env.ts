@@ -11,6 +11,12 @@ const environmentVariableDefinitions = {
     defaultValue: "https://japaneast.api.cognitive.microsoft.com/",
   },
   RECALLBOT_DOCUMENT_INTELLIGENCE_API_KEY: { required: true },
+  RECALLBOT_BEDROCK_MODEL_ID: {
+    defaultValue: "us.anthropic.claude-3-haiku-20240307-v1:0",
+  },
+  RECALLBOT_BEDROCK_REGION: {
+    defaultValue: "us-east-2",
+  },
   RECALLBOT_MASTODON_BASE_URL: { defaultValue: "https://xxx.azyobuzi.net/" },
   RECALLBOT_MASTODON_ACCESS_TOKEN: { required: true },
   RECALLBOT_ERROR_TOPIC_ARN: { required: false },
