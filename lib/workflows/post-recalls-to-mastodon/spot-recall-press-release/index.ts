@@ -4,11 +4,9 @@ import {
   type ConvertPdfToImages,
   type DownloadResource,
   type ExtractTablesFromPdf,
-  type MediaToUpload,
 } from "../../../infrastructures/index.ts";
 import type {
   CompleteSpotRecallPressRelease,
-  ContentToPost,
   SpotRecallListContent,
   SpotRecallPressReleasePage,
   SpotRecallPressReleaseWithPdf,
@@ -20,6 +18,7 @@ import {
   convertPdfsToImages,
   extractCarNameFromTitle,
   extractIllustrationPdfUrls,
+  makeContentToPost,
 } from "./utils.ts";
 
 const extractFromHtml = (
@@ -114,30 +113,6 @@ const analyzeSpotRecallPressRelease =
     };
   };
 
-const toContentToPost = (
-  input: CompleteSpotRecallPressRelease,
-): ContentToPost => {
-  const status = `${input.carName}
-${input.preamble}
-
-不具合の部位: ${input.component}
-${input.situation}
-
-リコール対象車の台数: ${input.numCars}台
-
-${input.pressReleaseUrl}`;
-
-  const media = input.illustrations.map(
-    (bytes): MediaToUpload => ({
-      description: "改善箇所説明図",
-      bytes,
-      mimeType: "image/png",
-    }),
-  );
-
-  return { pressReleaseUrl: input.pressReleaseUrl, status, media };
-};
-
 type CreatePostForSpotRecallPressReleaseDeps =
   AnalyzeSpotRecallPressReleaseDeps;
 
@@ -145,5 +120,5 @@ export const createPostForSpotRecallPressRelease =
   (deps: CreatePostForSpotRecallPressReleaseDeps) =>
   async (input: SpotRecallPressReleasePage) => {
     const analyzed = await analyzeSpotRecallPressRelease(deps)(input);
-    return toContentToPost(analyzed);
+    return makeContentToPost(analyzed);
   };
