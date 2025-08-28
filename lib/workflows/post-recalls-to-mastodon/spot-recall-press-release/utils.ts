@@ -2,8 +2,14 @@ import { z } from "zod/v4";
 import type {
   AskAIToChooseToolOutput,
   ConvertPdfToImages,
+  MediaToUpload,
 } from "../../../infrastructures/index.ts";
-import type { PdfLink, SpotRecallListContent } from "../types.ts";
+import type {
+  CompleteSpotRecallPressRelease,
+  ContentToPost,
+  PdfLink,
+  SpotRecallListContent,
+} from "../types.ts";
 
 /**
  * プレスリリースのタイトルから車名（メーカー + 通称名）を抽出します。
@@ -57,3 +63,28 @@ export async function convertPdfsToImages(
   }
   return results;
 }
+
+export const makeContentToPost = (
+  input: CompleteSpotRecallPressRelease,
+): ContentToPost => {
+  const formattedNumCars = input.numCars.toLocaleString("ja-JP");
+  const status = `${input.carName}
+${input.preamble}
+
+不具合の部位: ${input.component}
+${input.situation}
+
+リコール対象車の台数: ${formattedNumCars}台
+
+${input.pressReleaseUrl}`;
+
+  const media = input.illustrations.map(
+    (bytes): MediaToUpload => ({
+      description: "改善箇所説明図",
+      bytes,
+      mimeType: "image/png",
+    }),
+  );
+
+  return { pressReleaseUrl: input.pressReleaseUrl, status, media };
+};

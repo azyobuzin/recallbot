@@ -2,6 +2,7 @@ import { type TestContext, describe, test } from "node:test";
 import {
   extractCarNameFromTitle,
   extractIllustrationPdfUrls,
+  makeContentToPost,
   parseAssistantResult,
 } from "./utils.ts";
 
@@ -79,5 +80,21 @@ describe("parseAssistantResult", () => {
         "センターディスプレイ（１０．２５インチタイプ）において、画面表示を補正するプログラムが不適切なため、テレビへの画面切り替えやテレビからナビ等の別画面への切り替え操作をした際、映像信号が乱れて補正できないことがある。そのため、乱れた映像信号により、画面に縞模様が表示され、カメラの映像を表示できないおそれがある。",
       numCars: 9972,
     });
+  });
+});
+
+describe("makeContentToPost", () => {
+  test("リコール対象車の台数を3桁ごとにカンマ区切りにする", (t: TestContext) => {
+    const result = makeContentToPost({
+      pressReleaseUrl: "https://example.com/press",
+      carName: "トヨタ カローラ",
+      preamble: "リコールの届出について（トヨタ カローラ）",
+      component: "部品",
+      situation: "状況",
+      numCars: 1234567,
+      illustrations: [],
+    });
+
+    t.assert.match(result.status, /リコール対象車の台数: 1,234,567台/);
   });
 });
