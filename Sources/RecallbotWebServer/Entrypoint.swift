@@ -20,8 +20,4 @@ enum Entrypoint {
 
     try await app.asyncShutdown()
   }
-
-  private static func configure(_ app: Application) {
-    routes(app)
-  }
 }
