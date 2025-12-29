@@ -4,16 +4,25 @@
 import PackageDescription
 
 let package = Package(
-  name: "Recallbot",
+  name: "recallbot",
   dependencies: [
-    .package(url: "https://github.com/vapor/vapor.git", from: "4.120.0"),
+    .package(url: "https://github.com/awslabs/aws-sdk-swift.git", from: "1.6.24"),
     .package(url: "https://github.com/tid-kijyun/Kanna.git", from: "6.0.1"),
+    .package(url: "https://github.com/vapor/vapor.git", from: "4.120.0"),
   ],
   targets: [
     .executableTarget(
       name: "RecallbotWebServer",
       dependencies: [
         .product(name: "Vapor", package: "vapor")
+      ]
+    ),
+    .target(name: "SpotRecallListSummarizerAbstraction"),
+    .target(
+      name: "SpotRecallListSummarizerSingleConverse",
+      dependencies: [
+        .target(name: "SpotRecallListSummarizerAbstraction"),
+        .product(name: "AWSBedrockRuntime", package: "aws-sdk-swift"),
       ]
     ),
     .target(
