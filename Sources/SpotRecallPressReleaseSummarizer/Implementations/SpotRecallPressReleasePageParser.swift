@@ -1,7 +1,7 @@
 import Foundation
-import Kanna
+import SwiftSoup
 
-/// リコール届出プレスリリースのHTMLを、Kannaを使って解析する
+/// リコール届出プレスリリースのHTMLを、SwiftSoupを使って解析する
 struct SpotRecallPressReleasePageParser<Downloader: HTMLDownloadable>:
   SpotRecallPressReleasePageParsable
 {
@@ -19,9 +19,9 @@ struct SpotRecallPressReleasePageParser<Downloader: HTMLDownloadable>:
       throw Error.downloadError(cause: error)
     }
 
-    let doc: HTMLDocument
+    let doc: Document
     do {
-      doc = try HTML(html: htmlData, url: url.absoluteString, encoding: .utf8)
+      doc = try SwiftSoup.parse(htmlData, url.absoluteString)
     } catch {
       throw Error.parseError(cause: error)
     }
@@ -29,12 +29,12 @@ struct SpotRecallPressReleasePageParser<Downloader: HTMLDownloadable>:
     return try Self.parseDocument(doc, baseURL: url)
   }
 
-  private static func parseDocument(_ doc: HTMLDocument, baseURL: URL) throws
+  private static func parseDocument(_ doc: Document, baseURL: URL) throws
     -> SpotRecallPressReleasePage
   {
     let carName = try extractCarName(from: doc)
     let preamble = try extractPreamble(from: doc)
-    let pdfLinks = extractPdfLinks(from: doc, baseURL: baseURL)
+    let pdfLinks = try extractPdfLinks(from: doc, baseURL: baseURL)
 
     guard let recallListPdfUrl = pdfLinks.first(where: { $0.title == "リコール届出一覧表" })?.href else {
       throw Error.missingRecallListPdfLink
@@ -55,10 +55,8 @@ struct SpotRecallPressReleasePageParser<Downloader: HTMLDownloadable>:
   }
 
   /// 車名（メーカー + 通称名）を抽出します。
-  private static func extractCarName(from doc: HTMLDocument) throws -> String {
-    guard let titleText = doc.at_css("title")?.text else {
-      throw Error.missingCarName(description: "タイトル要素が見つかりませんでした。")
-    }
+  private static func extractCarName(from doc: Document) throws -> String {
+    let titleText = try doc.title()
 
     guard let openIndex = titleText.firstIndex(of: "（"),
       let closeIndex = titleText.lastIndex(of: "）"),
@@ -79,7 +77,7 @@ struct SpotRecallPressReleasePageParser<Downloader: HTMLDownloadable>:
   }
 
   /// 本文の1文目を抽出します。
-  private static func extractPreamble(from doc: HTMLDocument) throws -> String {
+  private static func extractPreamble(from doc: Document) throws -> String {
     /*
       dateクラスの次のp要素のテキストノードを抽出する
     
@@ -94,39 +92,44 @@ struct SpotRecallPressReleasePageParser<Downloader: HTMLDownloadable>:
       期待される抽出結果
           ＫＴＭ　ＪＡＰＡＮ株式会社から、令和７年１２月２６日国土交通大臣に対して、下記のとおりリコールの届出がありましたので、お知らせします。
     */
-
-    let xpath =
-      "(//p[starts-with(@class, 'date ')]/following-sibling::p)[1]/text()[not(preceding-sibling::br)]"
-
-    switch doc.xpath(xpath) {
-    case .String(let text):
-      return text.trimmingCharacters(in: .whitespacesAndNewlines)
-
-    case .NodeSet(let nodeset):
-      let text =
-        nodeset
-        .compactMap({ $0.text?.trimmingCharacters(in: .whitespacesAndNewlines) })
-        .joined()
-      guard !text.isEmpty else {
-        throw Error.missingPreamble(description: "抽出した本文が空です。")
-      }
-      return text
-
-    case .none, .Bool, .Number:
-      throw Error.missingPreamble(description: "要素が見つかりませんでした。")
+    guard let element = try doc.select(".date ~ p").first() else {
+      throw Error.missingPreamble(description: "本文要素が見つかりませんでした。")
     }
+
+    // br より前のテキストノードを抽出
+    let text = extractTextBeforeBr(from: element)
+      .trimmingCharacters(in: .whitespacesAndNewlines)
+
+    guard !text.isEmpty else {
+      throw Error.missingPreamble(description: "抽出した本文が空です。")
+    }
+
+    return text
+  }
+
+  /// 要素内の最初の br 要素より前のテキストを抽出します。
+  private static func extractTextBeforeBr(from element: Element) -> String {
+    var result = ""
+    for node in element.getChildNodes() {
+      if let textNode = node as? TextNode {
+        result += textNode.text()
+      } else if let el = node as? Element {
+        if el.tagName() == "br" {
+          break
+        }
+      }
+    }
+    return result
   }
 
   /// PDFリンクを抽出します。
-  private static func extractPdfLinks(from doc: HTMLDocument, baseURL: URL) -> [PdfLink] {
-    let elements = doc.css(".linkArrow01 a[href$='.pdf']")
-    return elements.compactMap { node in
-      guard let href = node["href"],
-        let url = URL(string: href, relativeTo: baseURL)?.absoluteURL
-      else {
+  private static func extractPdfLinks(from doc: Document, baseURL: URL) throws -> [PdfLink] {
+    let elements = try doc.select(".linkArrow01 a[href$='.pdf']")
+    return try elements.compactMap { element -> PdfLink? in
+      guard let url = URL(string: try element.absUrl("href")) else {
         return nil
       }
-      return PdfLink(title: node.text ?? "", href: url)
+      return PdfLink(title: try element.text(), href: url)
     }
   }
 }

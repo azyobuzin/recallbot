@@ -7,7 +7,7 @@ let package = Package(
   name: "recallbot",
   dependencies: [
     .package(url: "https://github.com/awslabs/aws-sdk-swift.git", from: "1.6.24"),
-    .package(url: "https://github.com/tid-kijyun/Kanna.git", from: "6.0.1"),
+    .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "2.11.2"),
     .package(url: "https://github.com/vapor/vapor.git", from: "4.120.0"),
   ],
   targets: [
@@ -28,7 +28,7 @@ let package = Package(
     .target(
       name: "SpotRecallPressReleaseSummarizer",
       dependencies: [
-        .product(name: "Kanna", package: "Kanna")
+        .product(name: "SwiftSoup", package: "SwiftSoup")
       ]
     ),
     .testTarget(
