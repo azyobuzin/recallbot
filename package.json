@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/azyobuzin/recallbot.git"
   },
-  "author": "azyobuzin <azyobuzin@users.sourceforge.jp>",
+  "author": "azyobuzin <azyobuzin-dev@azyobuzi.net>",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -16,13 +16,13 @@
     "test": "biome ci && tsc -noEmit && tsx --test $(find lib -name '*.test.ts')"
   },
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "3.828.0",
-    "@aws-sdk/client-dynamodb": "3.828.0",
-    "@aws-sdk/client-sns": "3.828.0",
+    "@aws-sdk/client-bedrock-runtime": "3.1011.0",
+    "@aws-sdk/client-dynamodb": "3.1011.0",
+    "@aws-sdk/client-sns": "3.1011.0",
     "@azure/ai-form-recognizer": "5.1.0",
     "jsdom": "25.0.1",
     "pdf-to-img": "4.3.0",
-    "typescript-result": "3.1.1",
+    "typescript-result": "3.5.2",
     "zod": "3.25.63"
   },
   "devDependencies": {

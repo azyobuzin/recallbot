@@ -9,7 +9,7 @@ RUN ESBUILD_VERSION=$(jq -r '.devDependencies.esbuild' package.json) && \
 FROM public.ecr.aws/lambda/nodejs:20
 WORKDIR ${LAMBDA_TASK_ROOT}
 ENV NODE_ENV=production
-COPY package.json package-lock.json .
+COPY package.json package-lock.json ./
 RUN npm ci && rm -rf ~/.npm
-COPY --from=builder ${LAMBDA_TASK_ROOT}/index.mjs .
+COPY --from=builder ${LAMBDA_TASK_ROOT}/index.mjs ./
 CMD ["index.handler"]
