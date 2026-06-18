@@ -1,5 +1,8 @@
 import { describe, type TestContext, test } from "node:test";
-import { recall20240906 } from "../../../../test-utils/fixtures.ts";
+import {
+  recall20240906,
+  recall20260618,
+} from "../../../../test-utils/fixtures.ts";
 import { extractPdfLinks, extractPreamble } from "./utils.ts";
 
 describe("extractPreamble", () => {
@@ -9,6 +12,18 @@ describe("extractPreamble", () => {
     t.assert.strictEqual(
       actual,
       "ドゥカティジャパン株式会社から、令和６年９月６日国土交通大臣に対して、下記のとおりリコールの届出がありましたので、お知らせします。",
+    );
+  });
+
+  test("2026-06-18のプレスリリースページから注意書きを除いた冒頭の文章を抽出できること", async (t: TestContext) => {
+    const dom = await recall20260618();
+    const actual = extractPreamble(dom);
+    t.assert.strictEqual(
+      actual,
+      "本田技研工業株式会社から、令和８年６月１８日国土交通大臣に対して、下記のとおりリコールの届出がありましたので、お知らせします。",
+    );
+    t.assert.ok(
+      !actual.includes("※お持ちの車両がリコール等情報の対象に該当するかは"),
     );
   });
 });

@@ -23,3 +23,14 @@ export async function recall20240906(): Promise<jsdom.JSDOM> {
     contentType: "text/html",
   });
 }
+
+export async function recall20260618(): Promise<jsdom.JSDOM> {
+  const content = await readFile(
+    new URL("./fixtures/jidosha08_hh_005764.html", import.meta.url),
+    { encoding: "utf8" },
+  );
+  return new jsdom.JSDOM(content, {
+    url: "https://www.mlit.go.jp/report/press/jidosha08_hh_005764.html",
+    contentType: "text/html",
+  });
+}
