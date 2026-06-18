@@ -1,4 +1,4 @@
-import { type TestContext, describe, test } from "node:test";
+import { describe, type TestContext, test } from "node:test";
 import { recall20240906 } from "../../../../test-utils/fixtures.ts";
 import { extractPdfLinks, extractPreamble } from "./utils.ts";
 
