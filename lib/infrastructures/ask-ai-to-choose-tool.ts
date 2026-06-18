@@ -50,7 +50,7 @@ export type AskAIToChooseToolOutput = {
 };
 
 /**
- * Claude 3 Haikuモデルとチャットし、ツールを選択させます。
+ * LLMとチャットし、ツールを選択させます。
  */
 export const askAIToChooseTool: AskAIToChooseToolFactory =
   (deps) => async (message, tools) => {

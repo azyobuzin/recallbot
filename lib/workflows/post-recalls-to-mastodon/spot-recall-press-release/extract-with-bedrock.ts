@@ -11,7 +11,7 @@ type ExtractWithBedrockDeps = {
 };
 
 /**
- * Claude 3 Haikuモデルを使ってPDFを読み取り、リコール情報を抽出します。
+ * LLMを使ってPDFを読み取り、リコール情報を抽出します。
  * 画像のみが含まれるPDFには対応しておらず、その場合はundefinedを返します。
  */
 export const extractWithBedrock =
