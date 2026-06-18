@@ -12,7 +12,7 @@ const environmentVariableDefinitions = {
   },
   RECALLBOT_DOCUMENT_INTELLIGENCE_API_KEY: { required: true },
   RECALLBOT_BEDROCK_MODEL_ID: {
-    defaultValue: "us.anthropic.claude-3-haiku-20240307-v1:0",
+    defaultValue: "us.anthropic.claude-haiku-4-5-20251001-v1:0",
   },
   RECALLBOT_BEDROCK_REGION: {
     defaultValue: "us-east-2",

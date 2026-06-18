@@ -1,4 +1,4 @@
-import { type TestContext, describe, test } from "node:test";
+import { describe, type TestContext, test } from "node:test";
 import {
   extractCarNameFromTitle,
   extractIllustrationPdfUrls,

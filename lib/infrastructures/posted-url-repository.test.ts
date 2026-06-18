@@ -1,4 +1,4 @@
-import { type TestContext, afterEach, describe, mock, test } from "node:test";
+import { afterEach, describe, mock, type TestContext, test } from "node:test";
 import type {
   BatchGetItemCommand,
   PutItemCommand,

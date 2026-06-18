@@ -49,6 +49,7 @@ const pickRecallPressReleaseFeedItems = (
           recallPressReleaseType: "monthly",
         };
       }
+      return undefined;
     })
     .filter((x) => x != null);
 

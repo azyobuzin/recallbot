@@ -84,9 +84,19 @@ export const tootService: TootServiceFactory = (deps) => {
       },
     });
     if (res.ok) return res;
+    const responseBody = await readResponseBody(res);
     throw new Error(
-      `Failed to request Mastodon API ${url}: ${res.status} ${res.statusText}`,
+      `Failed to request Mastodon API ${url}: ${res.status} ${res.statusText}; response body: ${responseBody}`,
     );
+  }
+};
+
+const readResponseBody = async (res: Response): Promise<string> => {
+  try {
+    const text = await res.text();
+    return text || "(empty)";
+  } catch (error) {
+    return `(failed to read response body: ${String(error)})`;
   }
 };
 
